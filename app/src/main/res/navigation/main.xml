@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/actionXHome"
+    android:id="@+id/main.xml">
+    <fragment
+        android:id="@+id/actionXHome"
+        android:name="com.xcaret.loyaltyreps.view.home.ui.FragmentHome"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_actionXHome_to_training"
+            app:destination="@id/training"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/training"
+        android:name="com.xcaret.loyaltyreps.view.training.ui.Training"
+        android:label="Training" >
+<!--        <action-->
+<!--            android:id="@+id/action_training_to_trainingDetail"-->
+<!--            app:destination="@id/trainingDetail"-->
+<!--            app:enterAnim="@anim/slide_in_right"-->
+<!--            app:exitAnim="@anim/slide_out_left"-->
+<!--            app:popEnterAnim="@anim/slide_in_left"-->
+<!--            app:popExitAnim="@anim/slide_out_right"-->
+<!--            />-->
+    </fragment>
+</navigation>

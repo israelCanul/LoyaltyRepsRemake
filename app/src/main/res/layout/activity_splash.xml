@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.Loyalty.Fullscreen"
+    tools:context=".view.general.ui.SplashActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg_retrieve_success"
+        android:contentDescription="@string/content_bg_login"
+        android:scaleType="centerCrop"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="150dp"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/content_bg_login"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo_loyalty_reps" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:padding="@dimen/margin30" android:textAlignment="center"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/small_text"
+            tools:text="@string/app_name"
+            android:id="@+id/copyRight"/>
+    </RelativeLayout>
+</FrameLayout>

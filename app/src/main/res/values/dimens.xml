@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="small_text">14sp</dimen>
+    <dimen name="general_text">16sp</dimen>
+    <dimen name="title">24sp</dimen>
+    <dimen name="titlelarge">32sp</dimen>
+    <dimen name="titleMax">40sp</dimen>
+    <dimen name="Subtitle">18sp</dimen>
+
+    <!--    Margins   -->
+    <dimen name="margin2">2dp</dimen>
+    <dimen name="margin0">0dp</dimen>
+    <dimen name="margin4">4dp</dimen>
+    <dimen name="margin6">6dp</dimen>
+    <dimen name="margin8">8dp</dimen>
+    <dimen name="margin10">10dp</dimen>
+    <dimen name="margin12">12dp</dimen>
+    <dimen name="margin15">15dp</dimen>
+    <dimen name="margin20">20dp</dimen>
+    <dimen name="margin30">30dp</dimen>
+    <dimen name="margin50">50dp</dimen>
+    <dimen name="margin_default">12dp</dimen>
+    <dimen name="margin_short">8dp</dimen>
+    <!--  Dividers  -->
+    <dimen name="divider">1dp</dimen>
+
+    <!-- Radius   -->
+    <dimen name="button_radius_default">32dp</dimen>
+    <dimen name="button_radius_small">16dp</dimen>
+
+
+    <!--  Navigation top  -->
+    <dimen name="height_toolbar">48dp</dimen>
+    <dimen name="btn_regular_size">48dp</dimen>
+    <dimen name="btn_small_size">32dp</dimen>
+    <dimen name="elevation_large">16dp</dimen>
+    <dimen name="ticket_park_with">180dp</dimen>
+    <dimen name="ticket_park_height">289dp</dimen>
+
+</resources>

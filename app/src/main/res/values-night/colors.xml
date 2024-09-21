@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    color primaries-->
+    <color name="colorPrimary">#8f2081</color>
+    <color name="colorPrimaryDark">#8f2081</color>
+    <color name="colorPrimaryLight">#f6eff6</color>
+    <color name="colorAccent">#47632F</color>
+    <color name="textColorHint">#273170</color>
+
+
+    <!--  Generals  -->
+    <color name="colorMenuUnselected">#a9a9a9</color>
+    <color name="generalTextColor">#41416E</color>
+
+    <color name="black">#FF000000</color>
+    <color name="black_divider">#737373</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#E00000</color>
+    <color name="white_aplha">#41FFFFFF</color>
+    <color name="primary_alpha">#578F2081</color>
+    <color name="transparent">#00928D8C</color>
+
+    <!--  Button Green  -->
+    <color name="btn_green">#67a33c</color>
+    <color name="green_theme">#B2BE24</color>
+</resources>

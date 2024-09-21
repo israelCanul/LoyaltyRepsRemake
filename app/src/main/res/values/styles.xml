@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
+
+    </style>
+
+    <style name="login_input" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/bg_inputtext_login</item>
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="errorTextColor">@color/white</item>
+        <item name="cursorErrorColor">@color/white</item>
+    </style>
+    <style name="EditInputStyle" parent="">
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/general_text</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHighlight">@color/white</item>
+        <item name="backgroundColor">@color/white_aplha</item>
+        <item name="android:textCursorDrawable">@drawable/color_cursor_white</item>
+    </style>
+    <style name="GreenButtonStyle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:paddingStart">@dimen/margin_default</item>
+        <item name="android:paddingEnd">@dimen/margin_default</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:background">@drawable/button_disabled</item>
+        <item name="android:textSize">@dimen/general_text</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:elevation" tools:targetApi="lollipop">0dp</item>
+        <item name="android:stateListAnimator" tools:targetApi="lollipop">@null</item>
+    </style>
+
+
+    <!-- Style for BaseDialog   -->
+    <style name="FullScreenDialog" parent="AppTheme">
+        <item name="android:padding">0dp</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/transparent</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textColorHint">@color/textColorHint</item>
+    </style>
+
+    <style name="MiTema" parent="AppTheme">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/title</item>
+    </style>
+
+    <style name="monse_bold_white" >
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/monserrat</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/general_text</item>
+    </style>
+    <style name="monse_normal_white" >
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/monserrat</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/general_text</item>
+    </style>
+    <style name="monse_bold" >
+        <item name="android:textColor">@color/generalTextColor</item>
+        <item name="android:fontFamily">@font/monserrat</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/general_text</item>
+    </style>
+    <style name="monse_normal" >
+        <item name="android:textColor">@color/generalTextColor</item>
+        <item name="android:fontFamily">@font/monserrat</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/general_text</item>
+    </style>
+
+    <style name="circular">
+        <item name="cornerSize">50%</item>
+    </style>
+
+
+</resources>
