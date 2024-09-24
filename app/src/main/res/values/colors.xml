@@ -23,5 +23,6 @@
 
     <!--  Button Green  -->
     <color name="btn_green">#67a33c</color>
+    <color name="btn_loyalty_red">#AD1F53</color>
     <color name="green_theme">#B2BE24</color>
 </resources>

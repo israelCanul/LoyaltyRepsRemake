@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape	android:shape="rectangle"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="@dimen/margin50" />
+    <solid	android:color="@color/btn_loyalty_red" />
+    <!--padding android:left="@dimen/margin50" android:right="@dimen/margin50" /-->
+    <stroke android:width="@dimen/margin2" android:color="@color/btn_loyalty_red"/>
+</shape>

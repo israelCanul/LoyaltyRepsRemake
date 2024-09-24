@@ -1,5 +1,6 @@
 package com.xcaret.loyaltyreps.view.training.vm
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.xcaret.loyaltyreps.data.api.VideoTraining
@@ -33,7 +34,21 @@ class TrainingViewModel : ViewModel() {
     fun fetchVideoTrainingData(){
         apiUseCase.fetchTrainingVideos(){ list, error ->
             list?.let{
-                listVideosTraining.postValue(it)
+                val videoList = mutableListOf<VideoTraining>()
+                if(it.isNotEmpty()){
+                    for (videosT in it){
+
+                        val nVideo = videosT.copy(
+                            visibility = true
+                        )
+
+                        videoList.add(
+                            nVideo
+                        )
+                    }
+                }
+                Log.i("viewModel", "observers: videos $videoList")
+                listVideosTraining.postValue(videoList)
             }?: run{
                 errorVideoTraining.postValue(error?:"Error getting the list")
             }

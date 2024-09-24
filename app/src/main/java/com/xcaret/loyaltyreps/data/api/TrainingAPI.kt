@@ -119,4 +119,6 @@ data class VideoTraining(
     var deadline: String = "",
     var quiz_available: Boolean = false,
     var visibility: Boolean = false
-)
+){
+
+}

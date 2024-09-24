@@ -283,6 +283,7 @@
     </string>
     <string name="module_not_available">No disponible</string>
     <string name="video_quiz_availability">Quiz disponible hasta</string>
+    <string name="video_quiz_earn">Gana</string>
     <string name="timer">15 / 05 / 2019</string>
     <string name="quiz_completed">¡Quiz completado!</string>
     <string name="timeLeft">00:00:00:00</string>

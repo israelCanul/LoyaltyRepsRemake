@@ -15,6 +15,7 @@ import com.xcaret.loyaltyreps.databinding.FragmentTrainingBinding
 import com.xcaret.loyaltyreps.view.base.BaseFragmentDataBinding
 import com.xcaret.loyaltyreps.view.training.vm.TrainingViewModel
 import com.xcaret.loyaltyv2.adapter.SlideTrainingParksAdapter
+import com.xcaret.loyaltyv2.adapter.SlideTrainingVideoAdapter
 
 class Training(): BaseFragmentDataBinding<FragmentTrainingBinding>(), ParksTrainingListeners{
     override val tagForBar: String
@@ -22,6 +23,7 @@ class Training(): BaseFragmentDataBinding<FragmentTrainingBinding>(), ParksTrain
     lateinit var _viewModel: TrainingViewModel
     override fun setHeaderFragment() {}
     lateinit var customAdapter: SlideTrainingParksAdapter
+    lateinit var customvideoAdapter: SlideTrainingVideoAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +45,10 @@ class Training(): BaseFragmentDataBinding<FragmentTrainingBinding>(), ParksTrain
         customAdapter =  SlideTrainingParksAdapter(::itemClickListener,requireContext(), list)
         binding.lstParks.adapter = customAdapter
     }
+    private fun loadVideos(list: List<VideoTraining>){
+        customvideoAdapter =  SlideTrainingVideoAdapter(::itemVideoClickListener,requireContext(), list)
+        binding.lstVideos.adapter = customvideoAdapter
+    }
     private fun observers(){
         _viewModel.listParksTraining.observe(viewLifecycleOwner){
             loadingDialog.dismiss()
@@ -50,12 +56,16 @@ class Training(): BaseFragmentDataBinding<FragmentTrainingBinding>(), ParksTrain
             Log.i(tagForBar, "observers: parks $it")
         }
         _viewModel.listVideosTraining.observe(viewLifecycleOwner){
-//            loadingDialog.dismiss()
+            Log.i(tagForBar, "observers: videos $it")
+            loadVideos(it)
         }
     }
     fun settingUpRecyclers(){
         binding.lstParks.layoutManager = StaggeredGridLayoutManager(1, LinearLayout.HORIZONTAL)
         binding.lstParks.setHasFixedSize(true)
+
+        binding.lstVideos.layoutManager = StaggeredGridLayoutManager(1, LinearLayout.HORIZONTAL)
+        binding.lstVideos.setHasFixedSize(true)
     }
 
     override fun itemClickListener(item: XPark) {
@@ -66,6 +76,7 @@ class Training(): BaseFragmentDataBinding<FragmentTrainingBinding>(), ParksTrain
     }
 
     override fun itemVideoClickListener(item: VideoTraining) {
+        Log.i(tagForBar, "observers: video clicked $item")
 //        val bundle = Bundle()
 //        bundle.putString("xpark_name", item.name)
 //        bundle.putString("xpark_id", item.id.toString())

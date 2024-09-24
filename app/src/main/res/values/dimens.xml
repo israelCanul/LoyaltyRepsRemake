@@ -26,6 +26,7 @@
 
     <!-- Radius   -->
     <dimen name="button_radius_default">32dp</dimen>
+    <dimen name="border_radius_card">24dp</dimen>
     <dimen name="button_radius_small">16dp</dimen>
 
 
