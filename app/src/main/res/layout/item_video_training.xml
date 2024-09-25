@@ -52,6 +52,7 @@
 
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/availabilityContainer_quizz_video"
                 android:background="@color/transparent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -97,6 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_quiz_quizz_video"
                     android:paddingHorizontal="@dimen/margin50"
                     android:textColor="@color/white"
                     android:background="@drawable/button_red_rounded"

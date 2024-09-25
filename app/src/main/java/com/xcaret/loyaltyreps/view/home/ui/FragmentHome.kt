@@ -7,9 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.xcaret.loyaltyreps.LoyaltyApp.Companion.getApp
 import com.xcaret.loyaltyreps.R
 import com.xcaret.loyaltyreps.data.config.FragmentTags
 import com.xcaret.loyaltyreps.data.entity.XUser
+import com.xcaret.loyaltyreps.data.utils.Session
+
 import com.xcaret.loyaltyreps.data.utils.Utils.getUserLevel
 import com.xcaret.loyaltyreps.databinding.FragmentHomeBinding
 import com.xcaret.loyaltyreps.view.base.BaseFragmentDataBinding
@@ -67,6 +70,11 @@ class FragmentHome: BaseFragmentDataBinding<FragmentHomeBinding>() {
         }
     }
     private fun showUserInfo(currentUser: XUser){
+        Log.i(tagForBar, "showUserInfo: $currentUser")
+
+        //saving the quizzes
+        Session.setQuizzesId(currentUser.quizzes, getApp().mContext)
+
         val totalPoints = currentUser.puntosPorVentas
         val userLevel = getUserLevel(totalPoints)
         val animationLevel = userLevel * 0.1;

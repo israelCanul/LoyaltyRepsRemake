@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 
 import com.xcaret.loyaltyreps.data.api.XPark
 import com.xcaret.loyaltyreps.databinding.ParkItemTrainingv3Binding
@@ -32,10 +33,13 @@ class SlideTrainingParksAdapter(
     }
     inner class TrainingParksHolder(val itemBinding: ParkItemTrainingv3Binding): RecyclerView.ViewHolder(itemBinding.root){
         fun bind(context: Context, xpark: XPark){
-            Log.i("ParkTraining", "$xpark")
-//            itemBinding.parkTitle.text = xpark.name
-//            itemBinding.parkTitle.setTextColor(Color.parseColor(xpark.color!!))
-            Glide.with(context).load(xpark.logo).into(itemBinding.parkLogo)
+//            Log.i("ParkTraining", "$xpark")
+
+            Glide.with(context)
+                .load(xpark.logo)
+                .skipMemoryCache(false)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(itemBinding.parkLogo)
         }
     }
 }

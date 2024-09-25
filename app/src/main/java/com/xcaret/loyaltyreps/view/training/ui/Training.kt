@@ -53,10 +53,10 @@ class Training(): BaseFragmentDataBinding<FragmentTrainingBinding>(), ParksTrain
         _viewModel.listParksTraining.observe(viewLifecycleOwner){
             loadingDialog.dismiss()
             loadParks(it)
-            Log.i(tagForBar, "observers: parks $it")
+//            Log.i(tagForBar, "observers: parks $it")
         }
         _viewModel.listVideosTraining.observe(viewLifecycleOwner){
-            Log.i(tagForBar, "observers: videos $it")
+//            Log.i(tagForBar, "observers: videos $it")
             loadVideos(it)
         }
     }

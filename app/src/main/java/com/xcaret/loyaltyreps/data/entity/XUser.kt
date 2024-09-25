@@ -119,7 +119,7 @@ data class XUser (
     var cnTarjetaActiva: Boolean = false,
 
     @ColumnInfo(name = "quizzes")
-    var quizzes: String? = "",
+    var quizzes: String = "",
 
     @ColumnInfo(name = "cnAceptaPoliticas")
     var cnAceptaPoliticas: Boolean = false,

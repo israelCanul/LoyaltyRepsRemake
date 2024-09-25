@@ -16,7 +16,7 @@ object Session: BaseSharePref() {
     private const val SHOW_WELCOME_ALERT = "SHOW_WELCOME_ALERT"
     private const val IS_VISITOR = "IS_VISITOR"
     private const val COUNTRY_CODE ="COUNTRY_CODE"
-
+    private const val QUIZZES = "QUIZZES"
     private const val TUTORIAL_WATCHED = "TUTORIAL_WATCHED"
 
     override fun getSettingName(): String = APP_SESSION
@@ -40,9 +40,8 @@ object Session: BaseSharePref() {
     fun setToken(value: String, context: Context) = setValue(IDTOKEN, value, context)
     fun getToken(context: Context) = getSharedPreferences(context).getString(IDTOKEN, "")
 
-    fun setRememberDate(value: String, context: Context) = setValue(DATE_REMEMBER_INCOMPLETE_PROFILE, value, context)
-    fun getRememberDate(context: Context) = getSharedPreferences(context).getString(
-        DATE_REMEMBER_INCOMPLETE_PROFILE, "") ?: ""
+    fun setQuizzesId(value: String, context: Context) = setValue(QUIZZES, value, context)
+    fun getQuizzesId(context: Context) = getSharedPreferences(context).getString(QUIZZES, "") ?: ""
 
     fun setShowWelcomeAlert(value: Boolean, context: Context) = setValue(SHOW_WELCOME_ALERT, value, context, ValueType.BOOLEAN)
     fun isShowWelcomeAlert(context: Context) = getSharedPreferences(context).getBoolean(
