@@ -35,8 +35,9 @@ class SlideTrainingVideoAdapter(
         val itemBinding = ItemVideoTrainingBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
 
-        if (Session.getQuizzesId(getApp().mContext).isEmpty()) {
+        if (Session.getQuizzesId(getApp().mContext).isNotEmpty()) {
             result = Session.getQuizzesId(getApp().mContext).split(",").map(String::toInt)
+            Log.i("ParkTraining", "quizzes done $result")
         } else {
             result = listOf(0)
         }
@@ -80,42 +81,35 @@ class SlideTrainingVideoAdapter(
                     if (item == video.quiz_id) {
                         itemBinding.btnQuizQuizzVideo.visibility = View.GONE
                         itemBinding.availabilityContainerQuizzVideo.visibility = View.GONE
-//                        holder.quiz_completed.visibility = View.VISIBLE
+                        itemBinding.quizzCompletedQuizzVideo.visibility = View.VISIBLE
                     }
                 }
             }
 
-//            if (listOfQuizIds.isNotEmpty()) {
-//                for (item in listOfQuizIds){
-//                    if (item == xvideo.quiz_id) {
-//                        holder.video_button.visibility = View.GONE
-//                        holder.video_avalability_con.visibility = View.GONE
-//                        holder.quiz_completed.visibility = View.VISIBLE
-//                    }
-//                }
-//            }
-
-//            if (!xvideo.quiz_available) {
-//                holder.video_button.background = ContextCompat.getDrawable(context, R.drawable.button_disabled)
-//            } else {
-//                holder.video_button.setOnClickListener {
+            if (!video.quiz_available) {
+                itemBinding.btnQuizQuizzVideo.background = ContextCompat.getDrawable(context, R.drawable.button_disabled)
+            } else {
+                itemBinding.btnQuizQuizzVideo.setOnClickListener {
+                    //TODO: Aqui se carga la informacion del video
 //                    loadVideoQuizData(xvideo.id.toString(), xvideo.name!!, holder.video_button)
-//                }
-//            }
-//            if(xvideo.active!!){
-//                holder.download_video.setOnClickListener {
+                }
+            }
+            if(video.active){
+                itemBinding.downloadVideoQuizzVideo.setOnClickListener {
+                    //TODO: Aqui se puede poner la descarga del video
 //                    var dm : DownloadImage = DownloadImage()
 //                    mydownloadID = dm.saveVideo(context!!,activity,xvideo.video.toString(),xvideo.name!! + "_quizz")
-//                }
-//            }
-//            holder.vide_cover.setOnClickListener {
-//                val bundle = Bundle().also {
-//                    it.putString("xvideo_url", xvideo.video)
-//                    it.putString("video_id", "1")
-//                }
-//                holder.itemView.findNavController().navigate(R.id.to_XVideoActivity, bundle)
-//            }
+                }
+            }
 
+            itemBinding.playVideoQuizzVideo.setOnClickListener {
+                val bundle = Bundle().also {
+                    it.putString("xvideo_url", video.video)
+                    it.putString("video_id", "1")
+                }
+                //TODO: Pendiente la activity para reproduccion del video
+                //holder.itemView.findNavController().navigate(R.id.to_XVideoActivity, bundle)
+            }
 
         }
     }

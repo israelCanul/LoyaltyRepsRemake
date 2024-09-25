@@ -5,6 +5,10 @@ plugins {
     id("com.google.gms.google-services")
 }
 
+val versionMajor = 0
+val versionMinor = 0
+val versionPatch = 2
+
 android {
     namespace = "com.xcaret.loyaltyreps"
     compileSdk = 35
@@ -13,8 +17,8 @@ android {
         applicationId = "com.xcaret.loyaltyreps"
         minSdk = 28
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        versionCode =  versionMajor * 10000 + versionMinor * 100+ versionPatch
+        versionName =  "${versionMajor}.${versionMinor}.${versionPatch}"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

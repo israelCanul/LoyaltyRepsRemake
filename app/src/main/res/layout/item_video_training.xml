@@ -37,6 +37,30 @@
                     android:layout_height="150dp"
                     android:contentDescription="@string/general_action_content_desc"
                     android:src="@drawable/xplor_tickets_500" />
+
+                <ImageView
+                    android:id="@+id/play_video_quizz_video"
+                    android:contentDescription="@string/general_action_content_desc"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_width="40.dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/icon_play_video"
+                    app:srcCompat="@drawable/icon_play_video" />
+                <ImageView
+                    android:background="@color/btn_green"
+                    android:id="@+id/download_video_quizz_video"
+                    android:contentDescription="@string/general_action_content_desc"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_width="40.dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_download"
+                    app:srcCompat="@drawable/ic_download"
+                    app:tint="@color/white" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
             <LinearLayout
                 android:background="@color/transparent"
@@ -103,6 +127,26 @@
                     android:textColor="@color/white"
                     android:background="@drawable/button_red_rounded"
                     android:text="@string/quiz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_marginBottom="@dimen/margin_default"
+                android:id="@+id/quizz_completed_quizz_video"
+                android:background="@color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    style="@style/monse_normal_white"
+                    android:src="@drawable/icon_checl"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"/>
+                <TextView
+                    android:paddingHorizontal="@dimen/margin4"
+                    android:id="@+id/txt_done_quizz_video"
+                    style="@style/monse_normal_italic"
+                    android:text="@string/quiz_completed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
