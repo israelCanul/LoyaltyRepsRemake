@@ -25,9 +25,12 @@ class Training(): BaseFragmentDataBinding<FragmentTrainingBinding>(), ParksTrain
     lateinit var customAdapter: SlideTrainingParksAdapter
     lateinit var customvideoAdapter: SlideTrainingVideoAdapter
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        loadingDialog.show(parentFragmentManager,tagForBar)
+//        if(savedInstanceState == null){
+            loadingDialog.show(parentFragmentManager,tagForBar)
+//        }
         _viewModel = ViewModelProvider(this)[TrainingViewModel::class.java]
     }
     override fun onCreateView(
@@ -36,17 +39,17 @@ class Training(): BaseFragmentDataBinding<FragmentTrainingBinding>(), ParksTrain
     ): View? {
         setBinding(FragmentTrainingBinding.inflate(inflater))
         setHeaderFragment()
-
         settingUpRecyclers()// inicializamos los recycler view
         observers()// inicializamos los observers para el modelo
         return binding.root
     }
+
     private fun loadParks(list: List<XPark>){
         customAdapter =  SlideTrainingParksAdapter(::itemClickListener,requireContext(), list)
         binding.lstParks.adapter = customAdapter
     }
     private fun loadVideos(list: List<VideoTraining>){
-        customvideoAdapter =  SlideTrainingVideoAdapter(::itemVideoClickListener,requireContext(), list)
+        customvideoAdapter =  SlideTrainingVideoAdapter(::itemVideoClickListener, ::itemVideoDownloadListener,requireContext(), list)
         binding.lstVideos.adapter = customvideoAdapter
     }
     private fun observers(){
@@ -58,6 +61,18 @@ class Training(): BaseFragmentDataBinding<FragmentTrainingBinding>(), ParksTrain
         _viewModel.listVideosTraining.observe(viewLifecycleOwner){
 //            Log.i(tagForBar, "observers: videos $it")
             loadVideos(it)
+        }
+        _viewModel.videoDownloaded.observe(viewLifecycleOwner){
+            if(it.isLoading){
+                loadingDialog.show(parentFragmentManager,tagForBar)
+            }else{
+                loadingDialog.dialog?.let{
+                    if (it.isShowing) {
+                        loadingDialog.dismiss()
+
+                    }
+                }
+            }
         }
     }
     fun settingUpRecyclers(){
@@ -77,14 +92,24 @@ class Training(): BaseFragmentDataBinding<FragmentTrainingBinding>(), ParksTrain
 
     override fun itemVideoClickListener(item: VideoTraining) {
         Log.i(tagForBar, "observers: video clicked $item")
-//        val bundle = Bundle()
-//        bundle.putString("xpark_name", item.name)
-//        bundle.putString("xpark_id", item.id.toString())
-//        navigate(R.id.action_training_to_trainingDetail, bundle)
+        sendToVideoPlayer(item)
     }
 
+    override fun itemVideoDownloadListener(item: VideoTraining) {
+        Log.i(tagForBar, "observers: video for download clicked $item")
+        _viewModel.saveVideo(requireContext(),requireActivity(), item.video, item.name)
+    }
+
+
+    fun sendToVideoPlayer(item: VideoTraining){
+        val bundle = Bundle()
+        bundle.putString("xvideo_url", item.video)
+//        bundle.putString("xpark_id", item.id.toString())
+        navigate(R.id.action_training_to_fullscreenVideoPlayer, bundle)
+    }
 }
 interface ParksTrainingListeners{
     fun itemClickListener(item: XPark): Unit
     fun itemVideoClickListener(item: VideoTraining): Unit
+    fun itemVideoDownloadListener(item: VideoTraining): Unit
 }

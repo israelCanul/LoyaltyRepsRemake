@@ -91,6 +91,7 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     implementation(libs.firebase.database)
     implementation(libs.androidx.gridlayout)
+    implementation(libs.androidx.runner)
 
     ksp(libs.androidx.room.compiler)
 
@@ -98,6 +99,10 @@ dependencies {
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
 
+    //exoplayer
+    implementation(libs.media3.exoplayer)
+    implementation(libs.media3.exoplayer.ui)
+    implementation(libs.media3.exoplayer.dash)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -8,16 +8,15 @@
         <item name="colorOnPrimary">@color/black</item>
 
 
-
     </style>
 
-    <style name="Theme.LoyaltyV2" parent="Base.Theme.LoyaltyV2" >
+    <style name="Theme.LoyaltyV2" parent="Base.Theme.LoyaltyV2">
 
     </style>
 
     <style name="Theme.Loyalty.Login" parent="Base.Theme.LoyaltyV2">
         <!--        status bar color -->
-        <item name="android:statusBarColor" >@color/colorPrimary</item><!-- System Top Bar -->
+        <item name="android:statusBarColor">@color/colorPrimary</item><!-- System Top Bar -->
         <item name="android:navigationBarColor">@color/colorPrimary</item><!-- bottom navigation -->
 
         <item name="colorPrimary">@color/white</item>
@@ -41,7 +40,7 @@
         <item name="android:windowIsTranslucent">false</item>
         <item name="android:windowIsFloating">false</item>
         <item name="android:backgroundDimEnabled">false</item>
-        <item name="android:statusBarColor" >@color/colorPrimary</item><!-- System Top Bar -->
+        <item name="android:statusBarColor">@color/colorPrimary</item><!-- System Top Bar -->
         <item name="android:navigationBarColor">@color/colorPrimary</item><!-- bottom navigation -->
     </style>
 
@@ -60,6 +59,18 @@
         <item name="android:windowIsTranslucent">false</item>
         <item name="android:windowIsFloating">false</item>
         <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="Theme.LoyaltyV2.Fullscreen" parent="Theme.LoyaltyV2">
+        <item name="android:actionBarStyle">@style/Widget.Theme.LoyaltyV2.ActionBar.Fullscreen
+        </item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
+
+    <style name="ThemeOverlay.LoyaltyReps.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
+        <item name="fullscreenTextColor">@color/light_blue_A200</item>
     </style>
 
 </resources>

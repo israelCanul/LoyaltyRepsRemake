@@ -12,6 +12,7 @@
         <item name="errorTextColor">@color/white</item>
         <item name="cursorErrorColor">@color/white</item>
     </style>
+
     <style name="EditInputStyle" parent="">
         <item name="android:maxLines">1</item>
         <item name="android:singleLine">true</item>
@@ -22,6 +23,7 @@
         <item name="backgroundColor">@color/white_aplha</item>
         <item name="android:textCursorDrawable">@drawable/color_cursor_white</item>
     </style>
+
     <style name="GreenButtonStyle">
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/white</item>
@@ -59,32 +61,35 @@
         <item name="android:textSize">@dimen/title</item>
     </style>
 
-    <style name="monse_bold_white" >
+    <style name="monse_bold_white">
         <item name="android:textColor">@color/white</item>
         <item name="android:fontFamily">@font/monserrat</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/general_text</item>
     </style>
 
-    <style name="monse_normal_white" >
+    <style name="monse_normal_white">
         <item name="android:textColor">@color/white</item>
         <item name="android:fontFamily">@font/monserrat</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">@dimen/general_text</item>
     </style>
-    <style name="monse_normal_italic" >
+
+    <style name="monse_normal_italic">
         <item name="android:textColor">@color/white</item>
         <item name="android:fontFamily">@font/monserrat</item>
         <item name="android:textStyle">italic</item>
         <item name="android:textSize">@dimen/general_text</item>
     </style>
-    <style name="monse_bold" >
+
+    <style name="monse_bold">
         <item name="android:textColor">@color/generalTextColor</item>
         <item name="android:fontFamily">@font/monserrat</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/general_text</item>
     </style>
-    <style name="monse_normal" >
+
+    <style name="monse_normal">
         <item name="android:textColor">@color/generalTextColor</item>
         <item name="android:fontFamily">@font/monserrat</item>
         <item name="android:textStyle">normal</item>
@@ -93,6 +98,15 @@
 
     <style name="circular">
         <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="Widget.Theme.LoyaltyV2.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
+
+    <style name="Widget.Theme.LoyaltyV2.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
     </style>
 
 

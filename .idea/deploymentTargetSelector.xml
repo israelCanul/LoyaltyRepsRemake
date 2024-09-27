@@ -4,10 +4,10 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DIALOG" />
-        <DropdownSelection timestamp="2024-09-24T00:47:50.633508900Z">
+        <DropdownSelection timestamp="2024-09-27T20:48:46.388224400Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\naril\.android\avd\Pixel_3_API_35.avd" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\naril\.android\avd\Pixel_7_API_29.avd" />
             </handle>
           </Target>
         </DropdownSelection>
@@ -15,12 +15,22 @@
           <targets>
             <Target type="DEFAULT_BOOT">
               <handle>
-                <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\naril\.android\avd\Pixel_8_API_28.avd" />
+                <DeviceId pluginId="PhysicalDevice" identifier="serial=320335798748" />
               </handle>
             </Target>
             <Target type="DEFAULT_BOOT">
               <handle>
                 <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\naril\.android\avd\Pixel_4_API_35.avd" />
+              </handle>
+            </Target>
+            <Target type="DEFAULT_BOOT">
+              <handle>
+                <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\naril\.android\avd\Pixel_7_API_29.avd" />
+              </handle>
+            </Target>
+            <Target type="DEFAULT_BOOT">
+              <handle>
+                <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\naril\.android\avd\Pixel_8_API_28.avd" />
               </handle>
             </Target>
             <Target type="DEFAULT_BOOT">

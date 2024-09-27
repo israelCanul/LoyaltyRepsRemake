@@ -30,5 +30,18 @@
 <!--            app:popEnterAnim="@anim/slide_in_left"-->
 <!--            app:popExitAnim="@anim/slide_out_right"-->
 <!--            />-->
+        <action
+            android:id="@+id/action_training_to_fullscreenVideoPlayer"
+            app:destination="@id/fullscreenVideoPlayer"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
     </fragment>
+    <activity
+        android:id="@+id/fullscreenVideoPlayer"
+        android:name="com.xcaret.loyaltyreps.FullscreenVideoPlayer"
+        android:label="activity_fullscreen_video_player"
+        tools:layout="@layout/activity_fullscreen_video_player" />
 </navigation>

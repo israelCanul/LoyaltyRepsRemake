@@ -359,10 +359,9 @@
     <string name="lbl_loading">Cargando...</string>
 
 
-
     <!--  Textos futuros que pueden ser integrados a Firebase  -->
     <string name="forgot_your_password_instructions">Introduce tu RCX/RRX para recuperar tu contraseña</string>
-    <string name="login_information">*Si aún no tienes tu número de acceso u olvidaste tu contraseña, contacta a tu Ejecutivo <br/>       o llámanos al <br/> (998) 980 0390.</string>
+    <string name="login_information">*Si aún no tienes tu número de acceso u olvidaste tu contraseña, contacta a tu Ejecutivo <br />       o llámanos al <br /> (998) 980 0390.</string>
     <string name="retrieve_success_information">Revisa tu correo donde vienen las instrucciones.</string>
 
     <string name="title_activity_initial">Initial Activity</string>
@@ -394,4 +393,7 @@
     <!--  Training  -->
     <string name="conoce_mas_training">¡Conoce un poco mas de nuestros parques!</string>
     <string name="txt_after_operative_guide">Te retamos a ver los siguientes videos y contestar unas preguntas para ganar puntos</string>
+    <string name="title_activity_fullscreen_video_player">FullscreenVideoPlayer</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

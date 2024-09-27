@@ -1,9 +1,14 @@
 package com.xcaret.loyaltyreps
 
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
@@ -15,6 +20,10 @@ import com.xcaret.loyaltyreps.view.general.vm.MainViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+
+    private var readPermissionGranted = false
+    private var writePermissionGranted = false
+    private lateinit var permissionsLauncher: ActivityResultLauncher<Array<String>>
 
     val _viewModel: MainViewModel by lazy {
         ViewModelProvider(this)[MainViewModel::class.java]
@@ -30,6 +39,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        permissionsLauncher = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
+            readPermissionGranted = permissions[android.Manifest.permission.READ_EXTERNAL_STORAGE] ?: readPermissionGranted
+            writePermissionGranted = permissions[android.Manifest.permission.WRITE_EXTERNAL_STORAGE] ?: writePermissionGranted
+        }
+
+        updateOrRequestPermissions()
     }
     private fun setupNavigation() {
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
@@ -51,5 +66,31 @@ class MainActivity : AppCompatActivity() {
     }
     fun popBackStack(){
         if (!navController.popBackStack()) finish()
+    }
+
+    private fun updateOrRequestPermissions() {
+        val hasReadPermission = ContextCompat.checkSelfPermission(
+            this,
+            android.Manifest.permission.READ_EXTERNAL_STORAGE
+        ) == PackageManager.PERMISSION_GRANTED
+        val hasWritePermission = ContextCompat.checkSelfPermission(
+            this,
+            android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+        ) == PackageManager.PERMISSION_GRANTED
+        val minSdk29 = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
+
+        readPermissionGranted = hasReadPermission
+        writePermissionGranted = hasWritePermission || minSdk29
+
+        val permissionsToRequest = mutableListOf<String>()
+        if(!writePermissionGranted) {
+            permissionsToRequest.add(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        }
+        if(!readPermissionGranted) {
+            permissionsToRequest.add(android.Manifest.permission.READ_EXTERNAL_STORAGE)
+        }
+        if(permissionsToRequest.isNotEmpty()) {
+            permissionsLauncher.launch(permissionsToRequest.toTypedArray())
+        }
     }
 }

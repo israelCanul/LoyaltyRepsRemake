@@ -10,6 +10,7 @@ class DialogLoadingFragment : BaseDialogFragment() {
     override fun getLayout(): Int = R.layout.dialog_loading
 
 
+
     companion object {
         const val tag = "DialogLoadingFragment"
         lateinit var mArguments: Bundle
