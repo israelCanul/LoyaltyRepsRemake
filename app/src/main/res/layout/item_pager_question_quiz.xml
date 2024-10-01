@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="@dimen/border_radius_card"
+        android:layout_margin="@dimen/margin_short"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:padding="@dimen/margin_default"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:src="@drawable/ic_question_and_answer"
+                android:contentDescription="@string/general_action_content_desc"
+                android:layout_width="48dp"
+                android:layout_height="48dp"/>
+            <TextView
+                style="@style/monse_bold"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginTop="@dimen/margin_short"
+                android:text="¿Cuales son os tipos de entrada que maneja Xavage?"
+                android:id="@+id/txt_question_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <RadioGroup
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:padding="@dimen/margin_default"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:id="@+id/quizQuestionOptionsContainer"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="@dimen/margin_short"
+                android:textSize="@dimen/small_text"
+                android:text="@string/quiz_next"
+                android:paddingVertical="@dimen/margin_short"
+                android:paddingHorizontal="@dimen/margin_default"
+                style="@style/monse_normal_white"
+                android:background="@drawable/button_red_rounded"
+                android:id="@+id/btn_next_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

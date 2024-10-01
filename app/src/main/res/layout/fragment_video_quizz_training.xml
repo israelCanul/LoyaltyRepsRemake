@@ -1,11 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background_2"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:text="asda"
-        android:gravity="center"
-        android:id="@+id/txt_question"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="@dimen/margin_default">
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/border_radius_card">
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="@dimen/margin_default"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="@color/colorPrimaryDark"
+                android:id="@+id/txt_title_quiz"
+                android:layout_marginBottom="@dimen/margin_short"
+                android:textSize="@dimen/title"
+                style="@style/monse_bold"
+                android:text="titulo quizz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:id="@+id/txt_info_quiz"
+                android:textSize="@dimen/xsmall_text"
+                style="@style/monse_normal"
+                android:text="titulo quizz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:max="10"
+                android:id="@+id/quiz_progress"
+                android:splitTrack="false"
+                android:saveEnabled="false"
+                android:progressDrawable="@drawable/progress_mainquiz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+   <androidx.viewpager2.widget.ViewPager2
+       android:id="@+id/fp_quiz_questions"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+   </androidx.viewpager2.widget.ViewPager2>
+
+
+</LinearLayout>

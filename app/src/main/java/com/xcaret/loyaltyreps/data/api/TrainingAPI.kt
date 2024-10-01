@@ -128,6 +128,7 @@ data class VideoQuizTraining(
     var id: Int? = null,
     var questions: List<VideoQuizQuestion> = listOf(),
     var wallet: String? = "",
+    var name: String = "",
     var points: Int = 0,
     var main_quiz: Boolean= false,
     var video: Int?
@@ -145,4 +146,10 @@ data class XQuestionChoice(
     var option: String?,
     var is_correct: Boolean?,
     var question: Int
+)
+data class ResponseQuestionChoice(
+    var selected: XQuestionChoice? = null,
+    var answer: XQuestionChoice? = null,
+    var is_correct: Boolean? = null,
+    var question: VideoQuizQuestion? = null
 )

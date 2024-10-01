@@ -90,6 +90,10 @@ class SlideTrainingVideoAdapter(
 
             if (!video.quiz_available) {
                 itemBinding.btnQuizQuizzVideo.background = ContextCompat.getDrawable(context, R.drawable.button_disabled)
+                //NOTE: Esto es solo para acceder al quizvideo
+                itemBinding.btnQuizQuizzVideo.setOnClickListener {
+                    clickQuizVideoListener(video)
+                }
             } else {
                 itemBinding.btnQuizQuizzVideo.setOnClickListener {
                     clickQuizVideoListener(video)
