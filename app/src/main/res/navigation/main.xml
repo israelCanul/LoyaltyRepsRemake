@@ -38,10 +38,22 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
             />
+        <action
+            android:id="@+id/action_training_to_videoQuizzTraining"
+            app:destination="@id/videoQuizzTraining"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
     </fragment>
     <activity
         android:id="@+id/fullscreenVideoPlayer"
         android:name="com.xcaret.loyaltyreps.FullscreenVideoPlayer"
         android:label="activity_fullscreen_video_player"
         tools:layout="@layout/activity_fullscreen_video_player" />
+    <fragment
+        android:id="@+id/videoQuizzTraining"
+        android:name="com.xcaret.loyaltyreps.view.training.ui.VideoQuizzTraining"
+        android:label="VideoQuizzTraining" />
 </navigation>

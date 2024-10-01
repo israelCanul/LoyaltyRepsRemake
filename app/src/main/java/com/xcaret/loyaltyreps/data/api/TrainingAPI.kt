@@ -13,6 +13,9 @@ interface TrainingAPI {
     fun fetchParksTrainingDetail(@Header("Authorization") idToken: String, @Query("park_id") idPark: String): Call<TrainingSection>
     @GET("videos/")
     fun fetchVideosTraining(@Header("Authorization") idToken: String): Call<List<VideoTraining>>
+    @GET("quiz")
+    fun fetchVideoQuizTraining(@Header("Authorization") idToken: String, @Query("video_id") idVideo: String): Call<VideoQuizTraining>
+
 
 
 
@@ -119,6 +122,27 @@ data class VideoTraining(
     var deadline: String = "",
     var quiz_available: Boolean = false,
     var visibility: Boolean = false
-){
+)
 
-}
+data class VideoQuizTraining(
+    var id: Int? = null,
+    var questions: List<VideoQuizQuestion> = listOf(),
+    var wallet: String? = "",
+    var points: Int = 0,
+    var main_quiz: Boolean= false,
+    var video: Int?
+)
+
+data class VideoQuizQuestion(
+    var id: Int? = null,
+    var choices: List<XQuestionChoice> = listOf(),
+    var question: String = "",
+    var quiz: Int? = null
+)
+
+data class XQuestionChoice(
+    var id: Int,
+    var option: String?,
+    var is_correct: Boolean?,
+    var question: Int
+)

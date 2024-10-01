@@ -25,6 +25,7 @@ import com.xcaret.loyaltyreps.databinding.ItemVideoTrainingBinding
 class SlideTrainingVideoAdapter(
     val clickListener: (VideoTraining) -> Unit,
     val clickDownloadListener: (VideoTraining) -> Unit,
+    val clickQuizVideoListener: (VideoTraining) -> Unit,
     private val context: Context,
     val listItems:List<VideoTraining>
 ): RecyclerView.Adapter<SlideTrainingVideoAdapter.TrainingVideoHolder>() {
@@ -91,16 +92,12 @@ class SlideTrainingVideoAdapter(
                 itemBinding.btnQuizQuizzVideo.background = ContextCompat.getDrawable(context, R.drawable.button_disabled)
             } else {
                 itemBinding.btnQuizQuizzVideo.setOnClickListener {
-                    //TODO: Aqui se carga la informacion del video
-//                    loadVideoQuizData(xvideo.id.toString(), xvideo.name!!, holder.video_button)
+                    clickQuizVideoListener(video)
                 }
             }
             if(video.active){
                 itemBinding.downloadVideoQuizzVideo.setOnClickListener {
                     clickDownloadListener(video)
-                    //TODO: Aqui se puede poner la descarga del video
-//                    var dm : DownloadImage = DownloadImage()
-//                    mydownloadID = dm.saveVideo(context!!,activity,xvideo.video.toString(),xvideo.name!! + "_quizz")
                 }
             }
 
@@ -110,8 +107,6 @@ class SlideTrainingVideoAdapter(
                     it.putString("video_id", "1")
                 }
                 clickListener(video)
-                //TODO: Pendiente la activity para reproduccion del video
-                //holder.itemView.findNavController().navigate(R.id.to_XVideoActivity, bundle)
             }
 
         }

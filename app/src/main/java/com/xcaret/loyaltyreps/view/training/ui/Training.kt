@@ -49,7 +49,7 @@ class Training(): BaseFragmentDataBinding<FragmentTrainingBinding>(), ParksTrain
         binding.lstParks.adapter = customAdapter
     }
     private fun loadVideos(list: List<VideoTraining>){
-        customvideoAdapter =  SlideTrainingVideoAdapter(::itemVideoClickListener, ::itemVideoDownloadListener,requireContext(), list)
+        customvideoAdapter =  SlideTrainingVideoAdapter(::itemVideoClickListener, ::itemVideoDownloadListener, ::itemVideoQuizListener,requireContext(), list)
         binding.lstVideos.adapter = customvideoAdapter
     }
     private fun observers(){
@@ -87,6 +87,7 @@ class Training(): BaseFragmentDataBinding<FragmentTrainingBinding>(), ParksTrain
         val bundle = Bundle()
         bundle.putString("xpark_name", item.name)
         bundle.putString("xpark_id", item.id.toString())
+
 //        navigate(R.id.action_training_to_trainingDetail, bundle)//mandamos al detalle
     }
 
@@ -98,6 +99,10 @@ class Training(): BaseFragmentDataBinding<FragmentTrainingBinding>(), ParksTrain
     override fun itemVideoDownloadListener(item: VideoTraining) {
         Log.i(tagForBar, "observers: video for download clicked $item")
         _viewModel.saveVideo(requireContext(),requireActivity(), item.video, item.name)
+    }
+
+    override fun itemVideoQuizListener(item: VideoTraining) {
+        navigate(R.id.action_training_to_videoQuizzTraining)
     }
 
 
@@ -112,4 +117,5 @@ interface ParksTrainingListeners{
     fun itemClickListener(item: XPark): Unit
     fun itemVideoClickListener(item: VideoTraining): Unit
     fun itemVideoDownloadListener(item: VideoTraining): Unit
+    fun itemVideoQuizListener(item: VideoTraining): Unit
 }

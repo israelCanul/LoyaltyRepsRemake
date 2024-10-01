@@ -31,6 +31,7 @@ import com.xcaret.loyaltyreps.data.api.TrainingSection
 import com.xcaret.loyaltyreps.data.api.UserPointsAsignedResponse
 import com.xcaret.loyaltyreps.data.api.UserPointsAsinged
 import com.xcaret.loyaltyreps.data.api.ValueStore
+import com.xcaret.loyaltyreps.data.api.VideoQuizTraining
 import com.xcaret.loyaltyreps.data.api.VideoTraining
 import com.xcaret.loyaltyreps.data.api.XPark
 import com.xcaret.loyaltyreps.data.config.Settings
@@ -331,6 +332,34 @@ class ApiUseCase{
                     result(null, getApp().mContext.getString(R.string.petition_error))
                 }
             })
+    }
+    fun fetchVideoQuizTraining(idQuiz: String,result: (succes: VideoQuizTraining?, error: String?) -> Unit){
+        val apiParks = ApiLoyaltyService.apiService.create(TrainingAPI::class.java)
+        apiParks.fetchVideoQuizTraining(("Token ${
+            Settings.getParam(
+                Settings.PUNK_API_TOKEN,
+                getApp().mContext)}"),
+            idQuiz
+        )
+        .enqueue(object: Callback<VideoQuizTraining>{
+            override fun onResponse(
+                call: Call<VideoQuizTraining>,
+                response: Response<VideoQuizTraining>
+            ) {
+                with(response) {
+                    when(code()){
+                        204 -> result(null, getApp().mContext.getString(
+                            R.string.there_is_no_records))
+                        in 401..405 -> result(null, getApp().mContext.getString(
+                            R.string.petition_error))
+                        200 -> result(response.body(), null)
+                    }
+                }
+            }
+            override fun onFailure(p0: Call<VideoQuizTraining>, p1: Throwable) {
+                result(null, getApp().mContext.getString(R.string.petition_error))
+            }
+        })
     }
     fun fetchParks(result: (succes: List<XPark>?, error: String?) -> Unit){
         Log.i("Trainin", Settings.getParam(Settings.PUNK_API_TOKEN,getApp().mContext))
