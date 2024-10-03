@@ -2,10 +2,10 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <gradient
-        android:angle="90"
-        android:centerColor="#bc2388"
-        android:endColor="#bc2388"
-        android:startColor="#bc2388" />
+        android:angle="180"
+        android:centerColor=""
+        android:endColor="@color/btn_loyalty_red"
+        android:startColor="@color/colorPrimaryDark" />
 
     <corners android:radius="10dp" />
 

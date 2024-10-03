@@ -119,6 +119,39 @@ class ApiUseCase{
     /**
      * Training
      * **/
+    fun addUserToQuizAfter(idRep: String, idQuiz: String, result: (succes: Boolean?, error: String?) -> Unit){
+        val jsonObject = JsonObject()
+        try {
+            jsonObject.addProperty("idRep", idRep)
+            jsonObject.addProperty("idQuiz", idQuiz)
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+        val apiParks = ApiXcaretService.apiService.create(TrainingAPI::class.java)
+        apiParks.addUserQuiz("bearer ${Session.getToken(getApp().mContext)}",jsonObject)
+            .enqueue(object : Callback<Boolean> {
+                override fun onResponse(
+                    call: Call<Boolean>,
+                    response: Response<Boolean>
+                ) {
+                    with(response) {
+                        when(code()){
+                            204 -> result(null, getApp().mContext.getString(R.string.there_is_no_records))
+                            in 401..405 ->{
+                                Log.e("API","MAIN QUIZ Response  $response")
+                                result(false, null)
+                            }
+                            200 -> result(response.body(), null)
+                        }
+                    }
+                }
+                override fun onFailure(call: Call<Boolean>, t: Throwable) {
+                    Log.e("API","MAIN QUIZ Error $t")
+                    result(null, getApp().mContext.getString(R.string.petition_error))
+                }
+            })
+
+    }
     fun getVideoQuizTraining(videoId: Int,result: (succes: ResponseQuiz?, error: String?) -> Unit){
         val apiParks = ApiLoyaltyService.apiService.create(TrainingAPI::class.java)
         apiParks.fetchVideoQuizTraining ("Token ${

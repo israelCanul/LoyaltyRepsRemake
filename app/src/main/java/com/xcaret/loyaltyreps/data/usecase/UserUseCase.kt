@@ -1,5 +1,6 @@
 package com.xcaret.loyaltyreps.data.usecase
 
+import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Log
@@ -58,7 +59,8 @@ class UserUseCase: BaseUseCase<XUser>() {
                 }
             })
     }
-    fun login(email: String, password: String,isSuccess: (user: XUser?, error: Throwable?) -> Unit){
+    @SuppressLint("CheckResult")
+    fun login(email: String, password: String, isSuccess: (user: XUser?, error: Throwable?) -> Unit){
         val jsonObject = JsonObject()
         jsonObject.addProperty("username", email.uppercase())
         jsonObject.addProperty("password", password)

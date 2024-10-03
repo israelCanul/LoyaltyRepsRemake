@@ -42,7 +42,7 @@ class VideoQuizzTraining:  BaseFragmentDataBinding<FragmentVideoQuizzTrainingBin
 
     private fun setupUi(videoQuiz: VideoQuizTraining) {
         var points: Int = videoQuiz.points
-        var videoInstructions = "Ganarás <font color=\"#8f2081\">$points puntos</font> al responder el quiz correctamente.\n"
+        var videoInstructions = "Ganarás <b>$points puntos</b> al responder el quiz correctamente.\n"
         videoInstructions += "Lee con atención las preguntas y selecciona la respuesta correcta."
         binding.txtInfoQuiz.text = HtmlCompat.fromHtml(videoInstructions, HtmlCompat.FROM_HTML_MODE_LEGACY)
         binding.txtTitleQuiz.text = videoQuiz.name
@@ -50,6 +50,7 @@ class VideoQuizzTraining:  BaseFragmentDataBinding<FragmentVideoQuizzTrainingBin
     }
 
     private fun settingUpUi(questions: List<VideoQuizQuestion>) {
+        Log.i("QuestionFragment", "onViewCreated: ${questions.size}")
         val fragments: MutableList<QuestionFragment> = mutableListOf()
         for (question in questions){
             fragments.add(QuestionFragment(question,::questionSelected))
@@ -67,9 +68,16 @@ class VideoQuizzTraining:  BaseFragmentDataBinding<FragmentVideoQuizzTrainingBin
         })
     }
     private fun questionSelected(res: ResponseQuestionChoice){
-        Log.i("QuestionFragment", "onViewCreated: $res")
+        val position = binding.fpQuizQuestions.currentItem
+        if(finalFormPager()){
+            binding.fpQuizQuestions.setCurrentItem(position + 1, true)
+        }else{
+            Log.i("QuestionFragment", "Final respuesta !!!! $res")
+        }
     }
-
+    private fun finalFormPager(): Boolean{
+        return binding.fpQuizQuestions.currentItem < _viewModel.videoQuizTraining.value!!.questions.count() -1
+    }
     private fun observers() {
         _viewModel.videoQuizTraining.observe(viewLifecycleOwner){
             it?.let{ videoQuiz ->

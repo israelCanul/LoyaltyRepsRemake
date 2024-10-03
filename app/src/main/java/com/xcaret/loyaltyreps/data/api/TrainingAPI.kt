@@ -18,7 +18,6 @@ interface TrainingAPI {
 
 
 
-
     @POST("api/rep/addRepQuiz")
     fun addUserQuiz(@Header("Authorization") idToken: String,@Body params: JsonObject): Call<Boolean>
     @POST("api/rep/asignacionPuntos")
@@ -144,12 +143,12 @@ data class VideoQuizQuestion(
 data class XQuestionChoice(
     var id: Int,
     var option: String?,
-    var is_correct: Boolean?,
+    var is_correct: Boolean = false,
     var question: Int
 )
 data class ResponseQuestionChoice(
     var selected: XQuestionChoice? = null,
     var answer: XQuestionChoice? = null,
-    var is_correct: Boolean? = null,
+    var is_correct: Boolean = false,
     var question: VideoQuizQuestion? = null
 )
