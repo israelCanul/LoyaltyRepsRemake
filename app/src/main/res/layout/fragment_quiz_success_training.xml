@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/background_2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:textAlignment="center"
+        android:id="@+id/txt_quiz_name"
+        android:layout_marginBottom="@dimen/margin_short"
+        android:textSize="@dimen/large_text"
+        style="@style/monse_bold_white"
+        tools:text="Cena fin de año"
+        android:textAllCaps="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:textAlignment="center"
+        android:layout_marginBottom="@dimen/margin_default"
+        android:textSize="@dimen/title"
+        style="@style/monse_bold_white"
+        android:text="@string/quiz_result_title_passed"
+        android:textAllCaps="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <ImageView
+        android:contentDescription="@string/general_lore_content_desc"
+        app:srcCompat="@drawable/lore_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_marginTop="@dimen/margin_default"
+        android:textSize="@dimen/general_text"
+        style="@style/monse_bold_white"
+        android:text="@string/training_success_response"
+        android:textAllCaps="false"
+        android:textAlignment="center"
+        android:maxWidth="500dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/txt_points_earned"
+
+
+        android:textSize="@dimen/title"
+        style="@style/monse_bold_white"
+        tools:text="38 pts"
+        android:textAllCaps="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:textSize="@dimen/small_text"
+        android:text="@string/training_points_for_exchange"
+        style="@style/monse_normal_white"
+        android:textAllCaps="false"
+        android:textAlignment="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:enabled="true"
+        android:layout_marginTop="@dimen/margin_default"
+        android:textSize="@dimen/small_text"
+        android:text="@string/continue_tohome"
+        android:paddingVertical="@dimen/margin_short"
+        android:paddingHorizontal="@dimen/margin_default"
+        style="@style/monse_normal_white"
+        android:background="@drawable/button_red_rounded"
+        android:id="@+id/btn_continue_training"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

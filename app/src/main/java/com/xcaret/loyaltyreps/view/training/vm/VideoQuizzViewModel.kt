@@ -43,21 +43,45 @@ class VideoQuizzViewModel : ViewModel() {
 
 
     init {
-        fetchVideoTrainingData()
+
     }
 
-    fun fetchVideoTrainingData(){
+    fun fetchVideoTrainingData(videoId: String){
         viewModelScope.launch {
-            apiUseCase.fetchVideoQuizTraining("40") { item, error ->
+            apiUseCase.fetchVideoQuizTraining(videoId) { item, error ->
                 videoQuizTraining.postValue(item)
 
                 Log.i("ViewModelVideo", "fetchVideoTrainingData: $item")
             }
         }
-
     }
 
+    fun addUserQuiz(wallet: String, idQuiz: String, points: String, comentario: String,error: ()->Unit,  result:()->Unit){
+        viewModelScope.launch {
+            apiUseCase.addUserQuiz(idQuiz) { succes, error ->
+                succes?.let{
+                    apiUseCase.addPointToUser( wallet, points, comentario){ succes, error ->
 
-
-
+                        succes?.let{
+                            Log.i( "addPointToUser", "onResponse: $succes")
+                            viewModelScope.launch(Dispatchers.Main){
+                                result()
+                            }
+                        }
+                        error?.let{
+                            viewModelScope.launch(Dispatchers.Main){
+                                error()
+                            }
+                        }
+                    }
+                }
+                error?.let{
+                    viewModelScope.launch(Dispatchers.Main){
+                        error()
+                    }
+                }
+//                Log.i("ViewModelVideo", "fetchVideoTrainingData: $item")
+            }
+        }
+    }
 }

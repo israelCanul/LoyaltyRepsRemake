@@ -1,7 +1,9 @@
 package com.xcaret.loyaltyreps.view.base
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
@@ -17,6 +19,14 @@ abstract class BaseFragmentDataBinding<T>: Fragment(){
     fun setBinding(instance: T): T?{
         _binding = instance
         return _binding
+    }
+
+
+    fun hideBottomNavigation(){
+        _parentActivity?.showBottomNavigation(false)
+    }
+    fun showBottomNavigation(){
+        _parentActivity?.showBottomNavigation(true)
     }
 
     val loadingDialog: DialogLoadingFragment by lazy {

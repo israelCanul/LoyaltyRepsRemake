@@ -393,7 +393,12 @@
     <!--  Training  -->
     <string name="conoce_mas_training">¡Conoce un poco mas de nuestros parques!</string>
     <string name="txt_after_operative_guide">Te retamos a ver los siguientes videos y contestar unas preguntas para ganar puntos</string>
-    <string name="title_activity_fullscreen_video_player">FullscreenVideoPlayer</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="training_ups">!Ups¡</string>
+    <string name="training_points_for_exchange">puntos para canje</string>
+    <string name="title_activity_fullscreen_video_player">FullScreen Video Player</string>
+    <string name="training_success_response">Aprobaste el quiz ganando un total de</string>
+    <string name="server_error_dialog_title">Server Error</string>
+    <string name="server_error_dialog_message">Communication with the server failed</string>
+    <string name="server_error_dialog_button_caption">Continue</string>
+
 </resources>

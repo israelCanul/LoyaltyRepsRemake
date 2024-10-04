@@ -3,6 +3,7 @@
     <dimen name="xsmall_text">11sp</dimen>
     <dimen name="small_text">14sp</dimen>
     <dimen name="general_text">16sp</dimen>
+    <dimen name="large_text">20sp</dimen>
     <dimen name="title">24sp</dimen>
     <dimen name="titlelarge">32sp</dimen>
     <dimen name="titleMax">40sp</dimen>

@@ -4,6 +4,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -43,17 +44,38 @@ class MainActivity : AppCompatActivity() {
             readPermissionGranted = permissions[android.Manifest.permission.READ_EXTERNAL_STORAGE] ?: readPermissionGranted
             writePermissionGranted = permissions[android.Manifest.permission.WRITE_EXTERNAL_STORAGE] ?: writePermissionGranted
         }
-
+        setupNavigation()
         updateOrRequestPermissions()
     }
     private fun setupNavigation() {
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            if(destination.label.toString().toLowerCase() != getString(R.string.menu_home).toLowerCase()){
-                Log.i("Destino: ", " destino: $destination")
+            Log.i("Destino: ", " destino: ${destination.label}")
+            when(destination.label.toString()){
+                "QuizzFailedTraining" ->{
+                    showBottomNavigation(false)
+                    toggleToolbar(false)
+                }
+                "QuizzSuccessTraining" ->{
+                    showBottomNavigation(false)
+                    toggleToolbar(false)
+                }
+                else -> {
+                    showBottomNavigation(true)
+                    toggleToolbar(true)
+                }
             }
+//            if(destination.label.toString().lowercase() != getString(R.string.menu_home).lowercase()){
+//                Log.i("Destino: ", " destino: $destination")
+//            }
         }
     }
 
+    fun showBottomNavigation(show: Boolean){
+        binding.layoutBottomNav.visibility = if(show) View.VISIBLE else View.GONE
+    }
+    fun toggleToolbar(show: Boolean){
+        binding.toolbarView.visibility = if(show) View.VISIBLE else View.GONE
+    }
     fun navigate(destination: Int, args: Bundle? = Bundle.EMPTY, navOptions: NavOptions? = null) {
         try {
             navController.navigate(destination, args, navOptions)

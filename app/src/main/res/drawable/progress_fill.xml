@@ -3,7 +3,6 @@
 
     <gradient
         android:angle="180"
-        android:centerColor=""
         android:endColor="@color/btn_loyalty_red"
         android:startColor="@color/colorPrimaryDark" />
 

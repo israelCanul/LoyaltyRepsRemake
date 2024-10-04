@@ -102,7 +102,11 @@ class Training(): BaseFragmentDataBinding<FragmentTrainingBinding>(), ParksTrain
     }
 
     override fun itemVideoQuizListener(item: VideoTraining) {
-        navigate(R.id.action_training_to_videoQuizzTraining)
+        val bundle = Bundle()
+        bundle.putString("wallet", item.wallet.toString())
+        bundle.putString("video_id", item.id.toString())
+
+        navigate(R.id.action_training_to_videoQuizzTraining, bundle)
     }
 
 

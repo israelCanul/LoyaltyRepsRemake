@@ -55,5 +55,30 @@
     <fragment
         android:id="@+id/videoQuizzTraining"
         android:name="com.xcaret.loyaltyreps.view.training.ui.VideoQuizzTraining"
-        android:label="VideoQuizzTraining" />
+        android:label="VideoQuizzTraining" >
+        <action
+            android:id="@+id/action_videoQuizzTraining_to_quizzFailedTraining"
+            app:destination="@id/quizzFailedTraining"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+        <action
+            android:id="@+id/action_videoQuizzTraining_to_quizzSuccessTraining"
+            app:destination="@id/quizzSuccessTraining"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/quizzFailedTraining"
+        android:name="com.xcaret.loyaltyreps.view.training.ui.QuizzFailedTraining"
+        android:label="QuizzFailedTraining" />
+    <fragment
+        android:id="@+id/quizzSuccessTraining"
+        android:name="com.xcaret.loyaltyreps.view.training.ui.QuizzSuccessTraining"
+        android:label="QuizzSuccessTraining" />
 </navigation>
