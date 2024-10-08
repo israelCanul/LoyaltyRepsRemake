@@ -17,6 +17,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.xcaret.loyaltyreps.LoyaltyApp.Companion.getApp
 import com.xcaret.loyaltyreps.data.api.VideoQuizTraining
 import com.xcaret.loyaltyreps.data.api.VideoTraining
 import com.xcaret.loyaltyreps.data.api.XPark
@@ -24,6 +25,7 @@ import com.xcaret.loyaltyreps.data.entity.XUser
 import com.xcaret.loyaltyreps.data.usecase.ApiUseCase
 import com.xcaret.loyaltyreps.data.usecase.DownloaderUseCase
 import com.xcaret.loyaltyreps.data.usecase.Result
+import com.xcaret.loyaltyreps.data.utils.Session
 import com.xcaret.loyaltyreps.data.utils.sdk29AndUp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -61,7 +63,6 @@ class VideoQuizzViewModel : ViewModel() {
             apiUseCase.addUserQuiz(idQuiz) { succes, error ->
                 succes?.let{
                     apiUseCase.addPointToUser( wallet, points, comentario){ succes, error ->
-
                         succes?.let{
                             Log.i( "addPointToUser", "onResponse: $succes")
                             viewModelScope.launch(Dispatchers.Main){
@@ -80,7 +81,6 @@ class VideoQuizzViewModel : ViewModel() {
                         error()
                     }
                 }
-//                Log.i("ViewModelVideo", "fetchVideoTrainingData: $item")
             }
         }
     }

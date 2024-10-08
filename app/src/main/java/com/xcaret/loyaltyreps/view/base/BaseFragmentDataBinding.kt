@@ -76,6 +76,8 @@ abstract class BaseFragmentDataBinding<T>: Fragment(){
 
     fun popBackStack() = _parentActivity?.popBackStack()
 
+    fun popBackStack(id: Int, inclusive: Boolean) = _parentActivity?.popBackStack(id, inclusive)
+
     fun fullscreen(){
         _parentActivity?.let{
             it.getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)

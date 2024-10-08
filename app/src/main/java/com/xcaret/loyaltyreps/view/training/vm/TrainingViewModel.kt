@@ -53,8 +53,8 @@ class TrainingViewModel : ViewModel() {
 
 
     init {
-        fetchTrainingData()
-        fetchVideoTrainingData()
+//        fetchTrainingData()
+//        fetchVideoTrainingData()
     }
     fun fetchTrainingData(){
         apiUseCase.fetchParks(){ list, error ->

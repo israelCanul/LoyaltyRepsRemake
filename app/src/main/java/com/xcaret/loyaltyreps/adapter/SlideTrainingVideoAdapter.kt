@@ -79,9 +79,10 @@ class SlideTrainingVideoAdapter(
 
 
             if (result.isNotEmpty()) {
+                Log.i("ParkTraining", "quizzes done $result  - -  ${video.quiz_id}")
                 for (item in result){
                     if (item == video.quiz_id) {
-                        itemBinding.btnQuizQuizzVideo.visibility = View.GONE
+//                        itemBinding.btnQuizQuizzVideo.visibility = View.GONE
                         itemBinding.availabilityContainerQuizzVideo.visibility = View.GONE
                         itemBinding.quizzCompletedQuizzVideo.visibility = View.VISIBLE
                     }

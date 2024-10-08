@@ -25,6 +25,7 @@ class VideoQuizzTraining:  BaseFragmentDataBinding<FragmentVideoQuizzTrainingBin
     lateinit var _viewModel: VideoQuizzViewModel
     lateinit var wallet: String
     lateinit var videoId: String
+    lateinit var quizId: String
     lateinit var pointsQuiz: String
     lateinit var nameQuiz: String
 
@@ -35,6 +36,7 @@ class VideoQuizzTraining:  BaseFragmentDataBinding<FragmentVideoQuizzTrainingBin
         super.onCreate(savedInstanceState)
         wallet = arguments?.getString("wallet")!!
         videoId = arguments?.getString("video_id")!!
+        quizId = arguments?.getString("quiz_id")!!
 
         _viewModel = ViewModelProvider(this)[VideoQuizzViewModel::class.java]
     }
@@ -89,7 +91,7 @@ class VideoQuizzTraining:  BaseFragmentDataBinding<FragmentVideoQuizzTrainingBin
         }else{
             if(quizzSuccess){
                 Log.i("QuestionFragment", "Final respuesta quiz success !!!! $res")
-                _viewModel.addUserQuiz(wallet,videoId,pointsQuiz, "Quiz - $nameQuiz",{
+                _viewModel.addUserQuiz(wallet,quizId,pointsQuiz, "Quiz - $nameQuiz",{
                     _parentActivity?.supportFragmentManager?.beginTransaction()
                         ?.add(ServerErrorDialogFragment.newInstance(), null)
                         ?.commitAllowingStateLoss()

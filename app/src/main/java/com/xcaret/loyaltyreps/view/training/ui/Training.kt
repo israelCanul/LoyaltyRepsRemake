@@ -44,6 +44,13 @@ class Training(): BaseFragmentDataBinding<FragmentTrainingBinding>(), ParksTrain
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        _viewModel.fetchTrainingData()
+        _viewModel.fetchVideoTrainingData()
+
+    }
+
     private fun loadParks(list: List<XPark>){
         customAdapter =  SlideTrainingParksAdapter(::itemClickListener,requireContext(), list)
         binding.lstParks.adapter = customAdapter
@@ -56,10 +63,10 @@ class Training(): BaseFragmentDataBinding<FragmentTrainingBinding>(), ParksTrain
         _viewModel.listParksTraining.observe(viewLifecycleOwner){
             loadingDialog.dismiss()
             loadParks(it)
-//            Log.i(tagForBar, "observers: parks $it")
+            Log.i(tagForBar, "observers: parks $it")
         }
         _viewModel.listVideosTraining.observe(viewLifecycleOwner){
-//            Log.i(tagForBar, "observers: videos $it")
+            Log.i(tagForBar, "observers: videos $it")
             loadVideos(it)
         }
         _viewModel.videoDownloaded.observe(viewLifecycleOwner){
@@ -102,10 +109,11 @@ class Training(): BaseFragmentDataBinding<FragmentTrainingBinding>(), ParksTrain
     }
 
     override fun itemVideoQuizListener(item: VideoTraining) {
+        Log.i("itemVideoQuizListener", "itemVideoQuizListener: $item")
         val bundle = Bundle()
         bundle.putString("wallet", item.wallet.toString())
         bundle.putString("video_id", item.id.toString())
-
+        bundle.putString("quiz_id", item.quiz_id.toString())
         navigate(R.id.action_training_to_videoQuizzTraining, bundle)
     }
 

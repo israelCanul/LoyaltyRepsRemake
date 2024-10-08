@@ -89,6 +89,9 @@ class MainActivity : AppCompatActivity() {
     fun popBackStack(){
         if (!navController.popBackStack()) finish()
     }
+    fun popBackStack(id: Int, inclusive: Boolean){
+        if (!navController.popBackStack(id, inclusive)) finish()
+    }
 
     private fun updateOrRequestPermissions() {
         val hasReadPermission = ContextCompat.checkSelfPermission(
