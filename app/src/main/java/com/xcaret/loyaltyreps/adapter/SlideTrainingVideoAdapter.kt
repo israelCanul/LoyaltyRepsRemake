@@ -75,6 +75,7 @@ class SlideTrainingVideoAdapter(
                     .error(R.drawable.bg_rounden_white)
                     .skipMemoryCache(false)
                     .diskCacheStrategy(DiskCacheStrategy.ALL))
+                .centerCrop()
                 .into(itemBinding.imgTrainingVideoCover)
 
 
@@ -82,7 +83,7 @@ class SlideTrainingVideoAdapter(
                 Log.i("ParkTraining", "quizzes done $result  - -  ${video.quiz_id}")
                 for (item in result){
                     if (item == video.quiz_id) {
-//                        itemBinding.btnQuizQuizzVideo.visibility = View.GONE
+                        itemBinding.btnQuizQuizzVideo.visibility = View.GONE
                         itemBinding.availabilityContainerQuizzVideo.visibility = View.GONE
                         itemBinding.quizzCompletedQuizzVideo.visibility = View.VISIBLE
                     }
@@ -92,9 +93,9 @@ class SlideTrainingVideoAdapter(
             if (!video.quiz_available) {
                 itemBinding.btnQuizQuizzVideo.background = ContextCompat.getDrawable(context, R.drawable.button_disabled)
                 //NOTE: Esto es solo para acceder al quizvideo
-                itemBinding.btnQuizQuizzVideo.setOnClickListener {
-                    clickQuizVideoListener(video)
-                }
+//                itemBinding.btnQuizQuizzVideo.setOnClickListener {
+//                    clickQuizVideoListener(video)
+//                }
             } else {
                 itemBinding.btnQuizQuizzVideo.setOnClickListener {
                     clickQuizVideoListener(video)

@@ -46,6 +46,14 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
             />
+        <action
+            android:id="@+id/action_training_to_parkTrainingView"
+            app:destination="@id/parkTrainingView"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
     </fragment>
     <activity
         android:id="@+id/fullscreenVideoPlayer"
@@ -81,4 +89,8 @@
         android:id="@+id/quizzSuccessTraining"
         android:name="com.xcaret.loyaltyreps.view.training.ui.QuizzSuccessTraining"
         android:label="QuizzSuccessTraining" />
+    <fragment
+        android:id="@+id/parkTrainingView"
+        android:name="com.xcaret.loyaltyreps.view.training.ui.ParkTrainingView"
+        android:label="ParkTrainingView" />
 </navigation>

@@ -95,7 +95,7 @@ class Training(): BaseFragmentDataBinding<FragmentTrainingBinding>(), ParksTrain
         bundle.putString("xpark_name", item.name)
         bundle.putString("xpark_id", item.id.toString())
 
-//        navigate(R.id.action_training_to_trainingDetail, bundle)//mandamos al detalle
+        navigate(R.id.action_training_to_parkTrainingView, bundle)//mandamos al detalle
     }
 
     override fun itemVideoClickListener(item: VideoTraining) {
@@ -104,7 +104,6 @@ class Training(): BaseFragmentDataBinding<FragmentTrainingBinding>(), ParksTrain
     }
 
     override fun itemVideoDownloadListener(item: VideoTraining) {
-        Log.i(tagForBar, "observers: video for download clicked $item")
         _viewModel.saveVideo(requireContext(),requireActivity(), item.video, item.name)
     }
 

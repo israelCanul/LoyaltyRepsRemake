@@ -351,6 +351,7 @@
 
     <string name="inactive_advice">Favor de consultar tu status con tu Agencia o Ejecutivo de Cuenta</string>
     <string name="Descargar_Video">Descargar Video</string>
+    <string name="Descargar">Descargar</string>
     <string name="convertirse_top_rep">¿Cómo puedes convertirte en un Top Rep?</string>
     <string name="error_update_perfil">Actualiza tu perfil</string>
     <string name="error_on_fullname">Para poder reservar necesitas agregar tu email en la seccion \"Perfil\"</string>
@@ -400,5 +401,8 @@
     <string name="server_error_dialog_title">Server Error</string>
     <string name="server_error_dialog_message">Communication with the server failed</string>
     <string name="server_error_dialog_button_caption">Continue</string>
+    <string name="training_park">Parque</string>
+    <string name="training_extra_info">Información extra</string>
+    <string name="training_gallery">Galería</string>
 
 </resources>
