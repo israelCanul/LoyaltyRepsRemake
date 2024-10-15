@@ -8,6 +8,7 @@ import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
@@ -26,9 +27,10 @@ class MainActivity : AppCompatActivity() {
     private var writePermissionGranted = false
     private lateinit var permissionsLauncher: ActivityResultLauncher<Array<String>>
 
-    val _viewModel: MainViewModel by lazy {
-        ViewModelProvider(this)[MainViewModel::class.java]
-    }
+    val _viewModel: MainViewModel by viewModels()
+//    lazy {
+//        ViewModelProvider(this)[MainViewModel::class.java]
+//    }
 
     private val navController: NavController by lazy {
         (supportFragmentManager.findFragmentById(R.id.mainNavHost) as NavHostFragment).navController

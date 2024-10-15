@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:id="@+id/lnr_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_weight="1"
+            android:layout_margin="@dimen/margin_default"
+            android:id="@+id/gotoDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textAppearance="@style/monse_normal"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:textSize="@dimen/general_text"
+            android:fontFamily="@font/roboto"/>
+
+        <ImageView
+            android:layout_marginEnd="@dimen/margin_default"
+            android:layout_gravity="center_vertical|end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/playme"
+            android:text="@string/app_name"
+            app:srcCompat="@drawable/ic_arrow_forward"
+            android:textSize="@dimen/general_text"
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/schedule"
+            app:tint="@color/btn_green" />
+    </LinearLayout>
+
+    <View
+        android:layout_marginEnd="@dimen/margin_default"
+        android:layout_marginStart="@dimen/margin_default"
+        android:background="@drawable/separator_bottom_line"
+        app:layout_constraintTop_toBottomOf="@+id/lnr_text"
+        app:layout_constraintStart_toStartOf="@+id/lnr_text"
+        app:layout_constraintEnd_toEndOf="@+id/lnr_text"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

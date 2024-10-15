@@ -22,7 +22,7 @@ import com.xcaret.loyaltyreps.databinding.FragmentTrainingDetailsParkBinding
 import com.xcaret.loyaltyreps.view.base.BaseFragmentDataBinding
 import com.xcaret.loyaltyreps.view.training.vm.TrainingViewModel
 
-class ParkTrainingView:  BaseFragmentDataBinding<FragmentParkTrainingBinding>(){
+class ParkTrainingView:  BaseFragmentDataBinding<FragmentParkTrainingBinding>(),ParksDetailTrainingListeners{
     override val tagForBar: String
         get() = "ParkTrainingView"
     lateinit var _viewModel: TrainingViewModel
@@ -58,8 +58,8 @@ class ParkTrainingView:  BaseFragmentDataBinding<FragmentParkTrainingBinding>(){
     private fun settingUpUi(trainingParkInfo: TrainingSection) {
         val fragments: MutableList<Fragment> = mutableListOf()
 
-        fragments.add(TrainingDetailsPark(trainingParkInfo, ::clickVideo))
-        fragments.add(TrainingExtrasPark())
+        fragments.add(TrainingDetailsPark(trainingParkInfo, ::itemVideoClickListener, ::itemVideoDownloadListener))
+        fragments.add(TrainingExtrasPark(trainingParkInfo, ::navigate))
         fragments.add(TrainingGalleryPark())
 
         val adapter = QuestionsViewPagerAdapter(fragments, this)
@@ -123,15 +123,13 @@ class ParkTrainingView:  BaseFragmentDataBinding<FragmentParkTrainingBinding>(){
         binding.btnBack.setOnClickListener{
             popBackStack()
         }
-
     }
-
-    fun clickVideo(urlVideo: String){
+    override fun itemVideoClickListener(urlVideo: String) {
         val bundle = Bundle()
         bundle.putString("xvideo_url", urlVideo)
-//        bundle.putString("xpark_id", item.id.toString())
         navigate(R.id.fullscreenVideoPlayer, bundle)
     }
-
-
+    override fun itemVideoDownloadListener(urlVideo: String) {
+        _viewModel.saveVideo(requireContext(),requireActivity(), urlVideo, parkName)
+    }
 }

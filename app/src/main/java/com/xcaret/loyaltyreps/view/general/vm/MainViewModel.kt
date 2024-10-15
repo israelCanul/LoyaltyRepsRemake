@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.xcaret.loyaltyreps.LoyaltyApp.Companion.getApp
+import com.xcaret.loyaltyreps.data.api.TrainingDetail
 import com.xcaret.loyaltyreps.data.entity.XUser
 import com.xcaret.loyaltyreps.data.usecase.UserUseCase
 import com.xcaret.loyaltyreps.data.utils.Session
@@ -15,7 +16,11 @@ class MainViewModel: ViewModel() {
     private var uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
     val useCase = UserUseCase()
     var currentUser = MutableLiveData<XUser?>()
+    var trainingExtrasParkDetail = MutableLiveData<TrainingDetail?>(null)
 
+    fun setTrainingDetail(xTraining: TrainingDetail){
+        trainingExtrasParkDetail.value = xTraining
+    }
 
     fun setUser(){
         uiScope.launch {
