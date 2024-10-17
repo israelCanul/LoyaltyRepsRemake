@@ -6,6 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.xcaret.loyaltyreps.LoyaltyApp.Companion.getApp
 import com.xcaret.loyaltyreps.data.api.TrainingDetail
+import com.xcaret.loyaltyreps.data.api.TrainingImagesSection
+import com.xcaret.loyaltyreps.data.api.TrainingSection
+import com.xcaret.loyaltyreps.data.entity.GalleryItem
 import com.xcaret.loyaltyreps.data.entity.XUser
 import com.xcaret.loyaltyreps.data.usecase.UserUseCase
 import com.xcaret.loyaltyreps.data.utils.Session
@@ -17,9 +20,13 @@ class MainViewModel: ViewModel() {
     val useCase = UserUseCase()
     var currentUser = MutableLiveData<XUser?>()
     var trainingExtrasParkDetail = MutableLiveData<TrainingDetail?>(null)
+    var gallerySelected = MutableLiveData<List<GalleryItem>>(listOf())
 
     fun setTrainingDetail(xTraining: TrainingDetail){
         trainingExtrasParkDetail.value = xTraining
+    }
+    fun setTrainingSection(listItems: List<GalleryItem>){
+        gallerySelected.value = listItems
     }
 
     fun setUser(){

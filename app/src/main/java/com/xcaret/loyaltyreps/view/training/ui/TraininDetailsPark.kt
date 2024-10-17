@@ -1,27 +1,28 @@
 package com.xcaret.loyaltyreps.view.training.ui
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.xcaret.loyaltyreps.R
+import com.xcaret.loyaltyreps.adapter.GalleryAdapter
 import com.xcaret.loyaltyreps.data.api.TrainingDetail
+import com.xcaret.loyaltyreps.data.api.TrainingImagesSection
 import com.xcaret.loyaltyreps.data.api.TrainingSection
-import com.xcaret.loyaltyreps.data.api.VideoTraining
-import com.xcaret.loyaltyreps.data.api.XPark
+import com.xcaret.loyaltyreps.data.entity.GalleryItem
 import com.xcaret.loyaltyreps.databinding.FragmentTrainingDetailsParkBinding
 import com.xcaret.loyaltyreps.databinding.FragmentTrainingExtrasParkBinding
 import com.xcaret.loyaltyreps.databinding.FragmentTrainingGalleryParkBinding
 import com.xcaret.loyaltyreps.view.general.vm.MainViewModel
-import com.xcaret.loyaltyreps.view.training.vm.TrainingViewModel
 
 
 class TrainingDetailsPark(private val parkTraining : TrainingSection,private val  playVideo: (url : String)-> Unit,private val downloadVideo: (url : String)-> Unit): Fragment(){
@@ -97,7 +98,8 @@ class TrainingExtrasPark(private val parkTraining : TrainingSection,private val 
         binding.detailsTablelayout.addView(item_row2)
     }
 }
-class TrainingGalleryPark(): Fragment(){
+class TrainingGalleryPark(private val parkTraining : TrainingSection,private val navigate: (id: Int, args: Bundle) ->Unit ): Fragment(), GalleryListeners{
+    private val viewModel: MainViewModel by activityViewModels()
     private var _binding: FragmentTrainingGalleryParkBinding? = null
     val binding get() = _binding!!
 
@@ -107,8 +109,40 @@ class TrainingGalleryPark(): Fragment(){
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentTrainingGalleryParkBinding.inflate(inflater)
+
+        settingUpRecyclers()
+
+
+        settingUpItemsToGallery(parkTraining.images)
+
         return binding.root
     }
+
+    private fun settingUpItemsToGallery(images: List<TrainingImagesSection>) {
+        val itemsGallery = mutableListOf<GalleryItem>()
+        images.forEach{
+            itemsGallery.add(GalleryItem(it.name, it.image, it.name))
+        }
+        viewModel.setTrainingSection(itemsGallery)// se agregan los items al mainViewModel
+        val customAdapter = GalleryAdapter(::itemClickListener, requireContext(),itemsGallery )
+        binding.menuItemsGalleryRecyclerView.adapter = customAdapter
+    }
+
+    fun settingUpRecyclers(){
+        binding.menuItemsGalleryRecyclerView.layoutManager = StaggeredGridLayoutManager(2, LinearLayout.VERTICAL)
+        binding.menuItemsGalleryRecyclerView.setHasFixedSize(true)
+    }
+
+    override fun itemClickListener(item: GalleryItem) {
+        val bundle = Bundle()
+        bundle.putInt("position", 0)
+        bundle.putString("gallery_name", "prueba")
+
+        navigate(R.id.action_parkTrainingView_to_galleryFragment, bundle)
+    }
+}
+interface GalleryListeners{
+    fun itemClickListener(item: GalleryItem): Unit
 }
 
 interface ParksDetailTrainingListeners{

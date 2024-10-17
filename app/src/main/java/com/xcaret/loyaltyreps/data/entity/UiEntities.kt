@@ -6,3 +6,9 @@ data class MenuItemHomeEntity (
     var icon: Int? = null,
     var tag: String = ""
 )
+
+data class GalleryItem(
+    var title: String = "",
+    var img: String = "",
+    var name: String = "",
+)

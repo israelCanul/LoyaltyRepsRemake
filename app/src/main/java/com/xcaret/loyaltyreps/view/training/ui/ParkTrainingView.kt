@@ -60,7 +60,7 @@ class ParkTrainingView:  BaseFragmentDataBinding<FragmentParkTrainingBinding>(),
 
         fragments.add(TrainingDetailsPark(trainingParkInfo, ::itemVideoClickListener, ::itemVideoDownloadListener))
         fragments.add(TrainingExtrasPark(trainingParkInfo, ::navigate))
-        fragments.add(TrainingGalleryPark())
+        fragments.add(TrainingGalleryPark(trainingParkInfo, ::navigate))
 
         val adapter = QuestionsViewPagerAdapter(fragments, this)
         binding.fpTrainingPark.adapter = adapter

@@ -389,6 +389,7 @@
 
     <!--  Training  -->
     <string name="conoce_mas_training">¡Conoce un poco mas de nuestros parques!</string>
+    <string name="conoce_nuestros_parques_training">¡Conoce nuestros parques!</string>
     <string name="txt_after_operative_guide">Te retamos a ver los siguientes videos y contestar unas preguntas para ganar puntos</string>
     <string name="training_ups">!Ups¡</string>
     <string name="training_points_for_exchange">puntos para canje</string>
