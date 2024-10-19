@@ -8,10 +8,10 @@
         android:layout_height="match_parent"
         android:background="@color/black">
 
-        <ImageButton android:layout_width="40dp" android:layout_height="40dp"
+        <ImageButton android:layout_width="48dp" android:layout_height="48dp"
             app:srcCompat="@drawable/ic_close"
             android:src="@drawable/ic_close"
-            android:backgroundTint="@color/transparent"
+            android:backgroundTint="@color/black"
             android:id="@+id/closeMe"
             android:elevation="@dimen/margin15"
             app:layout_constraintEnd_toEndOf="parent"
@@ -27,13 +27,13 @@
         <ImageButton
             app:tint="@color/white"
             android:id="@+id/downLoadImageSelected"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:scaleType="center"
             app:fabSize="mini"
             android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
-            android:backgroundTint="@color/transparent"
+            android:backgroundTint="@color/black"
             android:contentDescription="@string/app_name"
             android:elevation="@dimen/margin15"
             app:layout_constraintStart_toStartOf="parent"
@@ -58,6 +58,7 @@
             android:id="@+id/slideIndicator"
             android:layout_width="0dp"
             android:layout_height="20dp"
+            android:background="@color/transparent"
             app:tabBackground="@drawable/dot_selector"
             app:tabGravity="center"
             app:tabIndicatorHeight="0dp"
@@ -65,7 +66,8 @@
             app:tabPaddingEnd="@dimen/margin10"
             app:layout_constraintStart_toStartOf="@+id/xParkSlideViewPager"
             app:layout_constraintEnd_toEndOf="@+id/xParkSlideViewPager"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             android:layout_marginBottom="20dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

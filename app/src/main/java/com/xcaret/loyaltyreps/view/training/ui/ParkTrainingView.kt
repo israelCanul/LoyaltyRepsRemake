@@ -21,6 +21,7 @@ import com.xcaret.loyaltyreps.databinding.FragmentTrainingDetailsParkBinding
 
 import com.xcaret.loyaltyreps.view.base.BaseFragmentDataBinding
 import com.xcaret.loyaltyreps.view.training.vm.TrainingViewModel
+import com.xcaret.loyaltyv2.adapter.ViewPageAdapter
 
 class ParkTrainingView:  BaseFragmentDataBinding<FragmentParkTrainingBinding>(),ParksDetailTrainingListeners{
     override val tagForBar: String
@@ -62,7 +63,7 @@ class ParkTrainingView:  BaseFragmentDataBinding<FragmentParkTrainingBinding>(),
         fragments.add(TrainingExtrasPark(trainingParkInfo, ::navigate))
         fragments.add(TrainingGalleryPark(trainingParkInfo, ::navigate))
 
-        val adapter = QuestionsViewPagerAdapter(fragments, this)
+        val adapter = ViewPageAdapter(fragments, this)
         binding.fpTrainingPark.adapter = adapter
         binding.fpTrainingPark.isUserInputEnabled = true
         binding.fpTrainingPark.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {

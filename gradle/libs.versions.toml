@@ -26,6 +26,7 @@ gridlayout = "1.0.0"
 glidev = "4.14.2"
 runner = "1.6.1"
 exoplayer = "1.4.1"
+pphotoview = "2.2.0"
 
 #implementation 'com.airbnb.android:lottie:$lottieVersion'
 [libraries]
@@ -77,6 +78,9 @@ androidx-runner = { group = "androidx.test", name = "runner", version.ref = "run
 media3-exoplayer = { group = "androidx.media3", name = "media3-exoplayer", version.ref = "exoplayer" }
 media3-exoplayer-dash = { group = "androidx.media3", name = "media3-exoplayer-dash", version.ref = "exoplayer" }
 media3-exoplayer-ui = { group = "androidx.media3", name = "media3-ui", version.ref = "exoplayer" }
+
+#photoview
+photo-view = { group = "com.github.chrisbanes", name = "PhotoView", version.ref = "pphotoview" }
 
 
 [plugins]

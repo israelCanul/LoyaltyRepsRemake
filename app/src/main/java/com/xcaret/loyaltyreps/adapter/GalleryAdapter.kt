@@ -16,7 +16,7 @@ import com.xcaret.loyaltyreps.databinding.GalleryItemBinding
 
 
 class GalleryAdapter(
-    val clickListener: (item : GalleryItem) -> Unit,
+    val clickListener: (item : GalleryItem, position: Int) -> Unit,
     private val context: Context,
     val listItems:List<GalleryItem>
 ): RecyclerView.Adapter<GalleryAdapter.GalleryHolder>() {
@@ -47,7 +47,7 @@ class GalleryAdapter(
         val item = listItems[position]
         holder.bind(context, item)
         holder.itemBinding.cardItemGallery.setOnClickListener{
-            clickListener(item)
+            clickListener(item, position)
         }
 
     }

@@ -104,6 +104,9 @@ dependencies {
     implementation(libs.media3.exoplayer.ui)
     implementation(libs.media3.exoplayer.dash)
 
+    //photoview
+    implementation(libs.photo.view)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

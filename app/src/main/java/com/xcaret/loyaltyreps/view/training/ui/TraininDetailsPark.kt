@@ -133,16 +133,16 @@ class TrainingGalleryPark(private val parkTraining : TrainingSection,private val
         binding.menuItemsGalleryRecyclerView.setHasFixedSize(true)
     }
 
-    override fun itemClickListener(item: GalleryItem) {
+    override fun itemClickListener(item: GalleryItem, position: Int) {
         val bundle = Bundle()
-        bundle.putInt("position", 0)
+        bundle.putInt("position", position)
         bundle.putString("gallery_name", "prueba")
 
         navigate(R.id.action_parkTrainingView_to_galleryFragment, bundle)
     }
 }
 interface GalleryListeners{
-    fun itemClickListener(item: GalleryItem): Unit
+    fun itemClickListener(item: GalleryItem, position: Int = 0): Unit
 }
 
 interface ParksDetailTrainingListeners{
