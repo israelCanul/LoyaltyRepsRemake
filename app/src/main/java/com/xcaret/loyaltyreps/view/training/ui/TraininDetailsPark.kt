@@ -98,7 +98,7 @@ class TrainingExtrasPark(private val parkTraining : TrainingSection,private val 
         binding.detailsTablelayout.addView(item_row2)
     }
 }
-class TrainingGalleryPark(private val parkTraining : TrainingSection,private val navigate: (id: Int, args: Bundle) ->Unit ): Fragment(), GalleryListeners{
+class TrainingGalleryPark(private val parkTraining : TrainingSection,private val parkName: String, private val navigate: (id: Int, args: Bundle) ->Unit ): Fragment(), GalleryListeners{
     private val viewModel: MainViewModel by activityViewModels()
     private var _binding: FragmentTrainingGalleryParkBinding? = null
     val binding get() = _binding!!
@@ -136,7 +136,7 @@ class TrainingGalleryPark(private val parkTraining : TrainingSection,private val
     override fun itemClickListener(item: GalleryItem, position: Int) {
         val bundle = Bundle()
         bundle.putInt("position", position)
-        bundle.putString("gallery_name", "prueba")
+        bundle.putString("gallery_name", parkName)
 
         navigate(R.id.action_parkTrainingView_to_galleryFragment, bundle)
     }

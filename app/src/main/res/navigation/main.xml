@@ -54,6 +54,14 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
             />
+        <action
+            android:id="@+id/action_training_to_pdfViewerFragment"
+            app:destination="@id/pdfViewerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
     </fragment>
     <activity
         android:id="@+id/fullscreenVideoPlayer"
@@ -118,4 +126,8 @@
         android:id="@+id/galleryFragment"
         android:name="com.xcaret.loyaltyreps.view.general.ui.GalleryFragment"
         android:label="GalleryFragment" />
+    <fragment
+        android:id="@+id/pdfViewerFragment"
+        android:name="com.xcaret.loyaltyreps.view.general.ui.PdfViewerFragment"
+        android:label="PdfViewerFragment" />
 </navigation>

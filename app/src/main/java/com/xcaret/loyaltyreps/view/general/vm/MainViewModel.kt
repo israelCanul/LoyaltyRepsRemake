@@ -1,5 +1,6 @@
 package com.xcaret.loyaltyreps.view.general.vm
 
+import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,6 +11,7 @@ import com.xcaret.loyaltyreps.data.api.TrainingImagesSection
 import com.xcaret.loyaltyreps.data.api.TrainingSection
 import com.xcaret.loyaltyreps.data.entity.GalleryItem
 import com.xcaret.loyaltyreps.data.entity.XUser
+import com.xcaret.loyaltyreps.data.usecase.DownloaderUseCase
 import com.xcaret.loyaltyreps.data.usecase.UserUseCase
 import com.xcaret.loyaltyreps.data.utils.Session
 import kotlinx.coroutines.*
@@ -18,6 +20,7 @@ class MainViewModel: ViewModel() {
     private var viewModelJob = Job()
     private var uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
     val useCase = UserUseCase()
+    var downloaderUseCase = DownloaderUseCase()
     var currentUser = MutableLiveData<XUser?>()
     var trainingExtrasParkDetail = MutableLiveData<TrainingDetail?>(null)
     var gallerySelected = MutableLiveData<List<GalleryItem>>(listOf())
@@ -28,6 +31,17 @@ class MainViewModel: ViewModel() {
     fun setTrainingSection(listItems: List<GalleryItem>){
         gallerySelected.value = listItems
     }
+
+    fun downloadImages(displayName: String, imgUrl: String, final: (uri: Uri?, error : String ?)->Unit){
+        viewModelScope.launch(Dispatchers.IO) {
+            downloaderUseCase.getUriFromUrl(getApp().mContext, displayName, imgUrl) { uri, error ->
+                viewModelScope.launch(Dispatchers.Main){
+                    final(uri, error)
+                }
+            }
+        }
+    }
+
 
     fun setUser(){
         uiScope.launch {

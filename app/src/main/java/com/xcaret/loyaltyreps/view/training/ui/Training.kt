@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.xcaret.loyaltyreps.R
 import com.xcaret.loyaltyreps.data.api.VideoTraining
 import com.xcaret.loyaltyreps.data.api.XPark
+import com.xcaret.loyaltyreps.data.utils.AppPreferences
 import com.xcaret.loyaltyreps.databinding.FragmentTrainingBinding
 import com.xcaret.loyaltyreps.view.base.BaseFragmentDataBinding
 import com.xcaret.loyaltyreps.view.training.vm.TrainingViewModel
@@ -41,7 +42,19 @@ class Training(): BaseFragmentDataBinding<FragmentTrainingBinding>(), ParksTrain
         setHeaderFragment()
         settingUpRecyclers()// inicializamos los recycler view
         observers()// inicializamos los observers para el modelo
+        listeners()
         return binding.root
+    }
+
+    private fun listeners() {
+        binding.btnOperativeGuide.setOnClickListener{
+            //https://app.loyaltyreps.com/media/XS_Insomnia.mp4
+            val bundle = Bundle()
+            bundle.putString("file_name", "Guia_operativa_loyalty_reps.pdf")
+            bundle.putString("file_url", AppPreferences.operativeGuideUrl )
+            Log.i(tagForBar, "setOnClickListener: ${AppPreferences.operativeGuideUrl}")
+            navigate(R.id.action_training_to_pdfViewerFragment, bundle)
+        }
     }
 
     override fun onResume() {

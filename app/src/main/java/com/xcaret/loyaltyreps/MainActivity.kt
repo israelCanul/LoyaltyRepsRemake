@@ -65,6 +65,10 @@ class MainActivity : AppCompatActivity() {
                     showBottomNavigation(false)
                     toggleToolbar(false)
                 }
+                "PdfViewerFragment"->{
+                    showBottomNavigation(false)
+                    toggleToolbar(false)
+                }
                 else -> {
                     showBottomNavigation(true)
                     toggleToolbar(true)

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.widget.Toast
+import com.xcaret.loyaltyreps.BuildConfig
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -17,6 +18,7 @@ object AppPreferences {
         preferences = context.getSharedPreferences(NAME, MODE)
     }
 
+    var operativeGuideUrl = "${BuildConfig.PUNK_API_URL}documents/1/"
 
     //GETTERS AND SETTERS
     private inline fun SharedPreferences.edit(operation: (SharedPreferences.Editor) -> Unit) {

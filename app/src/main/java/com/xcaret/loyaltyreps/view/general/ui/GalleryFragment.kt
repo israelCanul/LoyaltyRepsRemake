@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.viewpager.widget.ViewPager
 import com.xcaret.loyaltyreps.R
@@ -83,12 +84,16 @@ class GalleryFragment(): BaseFragmentDataBinding<FragmentGalleryBinding>(){
             popBackStack()
         }
         binding.downLoadImageSelected.setOnClickListener{
-            //TODO: aqui se descarga
-
+            val image = images[binding.xParkSlideViewPager.currentItem]
+            viewModel.downloadImages("${name}_${image.name}", image.img){ uri, error ->
+                uri?.let {
+                    Toast.makeText(requireContext(), "Image downloaded", Toast.LENGTH_SHORT).show()
+                }?:run{
+                    Toast.makeText(requireContext(), "$error", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
-
     }
-
     private fun observers() {
         viewModel.gallerySelected.observe(viewLifecycleOwner){
             Log.i(tagForBar, "items: $it")
@@ -96,7 +101,6 @@ class GalleryFragment(): BaseFragmentDataBinding<FragmentGalleryBinding>(){
             initAdapter()
         }
     }
-
 
     private fun setItem0() {
         binding.xParkSlideViewPager.setCurrentItem(0, false)
