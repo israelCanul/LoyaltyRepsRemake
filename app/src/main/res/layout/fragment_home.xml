@@ -191,6 +191,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
+
                 app:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -205,6 +206,7 @@
                     android:src="@drawable/bg_home_status"
                     />
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/btn_to_training"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -217,7 +219,7 @@
                     >
                     <ImageView
                         android:contentDescription="@string/general_action_content_desc"
-                        android:id="@+id/btn_to_training"
+
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         android:layout_marginEnd="@dimen/margin0"
@@ -327,7 +329,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-
+                    android:id="@+id/btn_to_parks"
                     android:orientation="vertical"
                     android:layout_width="150dp"
                     android:paddingHorizontal="@dimen/margin_default"
@@ -336,7 +338,7 @@
                     >
                     <ImageView
                         android:contentDescription="@string/general_action_content_desc"
-                        android:id="@+id/btn_to_parks"
+
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         android:layout_marginEnd="@dimen/margin0"

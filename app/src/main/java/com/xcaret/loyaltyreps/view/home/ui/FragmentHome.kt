@@ -46,6 +46,9 @@ class FragmentHome: BaseFragmentDataBinding<FragmentHomeBinding>() {
         return binding.root
     }
      private fun listeners(){
+         binding.btnToParks.setOnClickListener {
+             navigate(R.id.action_actionXHome_to_parks, Bundle.EMPTY)
+         }
          binding.btnToTraining.setOnClickListener(){
              navigate(R.id.action_actionXHome_to_training)
          }

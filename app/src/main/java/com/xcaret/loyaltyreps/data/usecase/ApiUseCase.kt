@@ -387,6 +387,30 @@ class ApiUseCase{
                 }
             })
     }
+    fun fetchParksInfographic(result: (succes: List<XPark>?, error: String?) -> Unit){
+        val apiParks = ApiLoyaltyService.apiService.create(TrainingAPI::class.java)
+        apiParks.fetchParksInfographicTraining("Token ${
+            Settings.getParam(
+                Settings.PUNK_API_TOKEN,
+                getApp().mContext)}")
+            .enqueue(object : Callback<List<XPark>> {
+                override fun onResponse(
+                    call: Call<List<XPark>>,
+                    response: Response<List<XPark>>
+                ) {
+                    with(response) {
+                        when(code()){
+                            204 -> result(null, getApp().mContext.getString(R.string.there_is_no_records))
+                            in 401..405 -> result(null, getApp().mContext.getString(R.string.petition_error))
+                            200 -> result(response.body(), null)
+                        }
+                    }
+                }
+                override fun onFailure(call: Call<List<XPark>>, t: Throwable) {
+                    result(null, "${getApp().mContext.getString(R.string.petition_error)} ss ${t.message} $t")
+                }
+            })
+    }
     /**
      * FOR STORE SECTION
      *TODO:

@@ -23,9 +23,115 @@ object Utils {
     const val DRAWABLE = "drawable"
 
 
-
-    fun getBitmapFromDrawableByName(context: Context, name: Int): Bitmap?{
-        var d = ContextCompat.getDrawable(context, name)
+    fun getParkLogoBitmapFromDrawableByName(context: Context, name: String): Bitmap?{
+        var image: Int = R.drawable.parques_logo
+        when(name){
+            "XCARET" -> {
+                image = R.drawable.xcaret_logo
+            }
+            "XAILING CATAMARÁN" -> {
+                image = R.drawable.catamaran_logo
+            }
+            "XAILING FERRY" -> {
+                image = R.drawable.ferry_logo
+            }
+            "COBÁ" -> {
+                image = R.drawable.coba_logo
+            }
+            "Actividades Extraordinarias" -> {
+//                image = R.drawable.extraordinarias
+            }
+            "Parques" -> {
+                image = R.drawable.parques_logo
+            }
+            "XPLOR FUEGO" -> {
+                image = R.drawable.xplor_fuego_logo
+            }
+            "XICHÉN CLÁSICO" -> {
+                image = R.drawable.xichen_clasico_logo
+            }
+            "XAVAGE" -> {
+                image = R.drawable.xavage_logo
+            }
+            "XENOTES" -> {
+                image = R.drawable.xenotes_logo
+            }
+            "XICHÉN DELUXE" -> {
+                image = R.drawable.xichen_deluxe_logo
+            }
+            "XENSES" -> {
+                image = R.drawable.xenses_logo
+            }
+            "XOXIMILCO" -> {
+                image = R.drawable.xoximilco_logo
+            }
+            "XPLOR" -> {
+                image = R.drawable.xplor_logo
+            }
+            "XEL-HÁ" -> {
+                image = R.drawable.xelha_logo
+            }
+            else ->{
+                image = R.drawable.parques_logo
+            }
+        }
+        val d = ContextCompat.getDrawable(context, image)
+        val bitmap = d?.let { drawableToBitmap(it) }
+        return bitmap
+    }
+    fun getParkBitmapFromDrawableByName(context: Context, name: String): Bitmap?{
+        var image: Int = R.drawable.parques
+        when(name){
+            "XCARET" -> {
+                image = R.drawable.xcaret
+            }
+            "XAILING CATAMARÁN" -> {
+                image = R.drawable.xailing_catamaran
+            }
+            "XAILING FERRY" -> {
+                image = R.drawable.xailing_ferry
+            }
+            "COBÁ" -> {
+                image = R.drawable.coba
+            }
+            "Actividades Extraordinarias" -> {
+                image = R.drawable.extraordinarias
+            }
+            "Parques" -> {
+                image = R.drawable.parques
+            }
+            "XPLOR FUEGO" -> {
+                image = R.drawable.xplor_fuego
+            }
+            "XICHÉN CLÁSICO" -> {
+                image = R.drawable.xichen_clasico
+            }
+            "XAVAGE" -> {
+                image = R.drawable.xavage
+            }
+            "XENOTES" -> {
+                image = R.drawable.xenotes
+            }
+            "XICHÉN DELUXE" -> {
+                image = R.drawable.xichen_deluxe
+            }
+            "XENSES" -> {
+                image = R.drawable.xenses
+            }
+            "XOXIMILCO" -> {
+                image = R.drawable.xoximilco
+            }
+            "XPLOR" -> {
+                image = R.drawable.xplor
+            }
+            "XEL-HÁ" -> {
+                image = R.drawable.xelha
+            }
+            else ->{
+                image = R.drawable.parques
+            }
+        }
+        val d = ContextCompat.getDrawable(context, image)
         val bitmap = d?.let { drawableToBitmap(it) }
         return bitmap
     }

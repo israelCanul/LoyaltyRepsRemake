@@ -17,19 +17,19 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
             />
+        <action
+            android:id="@+id/action_actionXHome_to_parks"
+            app:destination="@id/parks"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
     </fragment>
     <fragment
         android:id="@+id/training"
         android:name="com.xcaret.loyaltyreps.view.training.ui.Training"
         android:label="Training" >
-<!--        <action-->
-<!--            android:id="@+id/action_training_to_trainingDetail"-->
-<!--            app:destination="@id/trainingDetail"-->
-<!--            app:enterAnim="@anim/slide_in_right"-->
-<!--            app:exitAnim="@anim/slide_out_left"-->
-<!--            app:popEnterAnim="@anim/slide_in_left"-->
-<!--            app:popExitAnim="@anim/slide_out_right"-->
-<!--            />-->
         <action
             android:id="@+id/action_training_to_fullscreenVideoPlayer"
             app:destination="@id/fullscreenVideoPlayer"
@@ -130,4 +130,8 @@
         android:id="@+id/pdfViewerFragment"
         android:name="com.xcaret.loyaltyreps.view.general.ui.PdfViewerFragment"
         android:label="PdfViewerFragment" />
+    <fragment
+        android:id="@+id/parks"
+        android:name="com.xcaret.loyaltyreps.view.parks.ui.Parks"
+        android:label="Parks" />
 </navigation>

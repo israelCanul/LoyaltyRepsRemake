@@ -66,6 +66,7 @@ class TrainingViewModel : ViewModel() {
             }
         }
     }
+
     fun fetchVideoTrainingData(){
         apiUseCase.fetchTrainingVideos(){ list, error ->
             list?.let{

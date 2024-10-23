@@ -9,6 +9,8 @@ import java.util.ArrayList
 interface TrainingAPI {
     @GET("parks/")
     fun fetchParksTraining(@Header("Authorization") idToken: String): Call<List<XPark>>
+    @GET("infographics/")
+    fun fetchParksInfographicTraining(@Header("Authorization") idToken: String): Call<List<XPark>>
     @GET("training_section")
     fun fetchParksTrainingDetail(@Header("Authorization") idToken: String, @Query("park_id") idPark: String): Call<TrainingSection>
     @GET("videos/")
