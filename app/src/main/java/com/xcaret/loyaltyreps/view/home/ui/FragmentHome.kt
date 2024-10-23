@@ -77,10 +77,10 @@ class FragmentHome: BaseFragmentDataBinding<FragmentHomeBinding>() {
 
         val totalPoints = currentUser.puntosPorVentas
         val userLevel = getUserLevel(totalPoints)
-        val animationLevel = userLevel * 0.1;
-        Log.i(tagForBar, "$totalPoints $animationLevel $userLevel")
+//        val animationLevel = userLevel * 0.1;
+//        Log.i(tagForBar, "$totalPoints $animationLevel $userLevel")
         binding.statusPoints.text = totalPoints.toString()
-        binding.statusLevel.text = userLevel.toString()
+//        binding.statusLevel.text = userLevel.toString()
         binding.statusStatus.text = if(currentUser.estatus) "Activo" else "Desactivado"
     }
 

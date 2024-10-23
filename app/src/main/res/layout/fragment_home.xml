@@ -62,25 +62,25 @@
                     android:text="@string/home_point_for_exchange"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
-                <LinearLayout
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:textSize="@dimen/small_text"
-                        style="@style/monse_normal_white"
-                        android:text="@string/home_frag_status"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                    <TextView
-                        android:paddingStart="@dimen/margin10"
-                        android:textSize="@dimen/small_text"
-                        style="@style/monse_normal_white"
-                        android:id="@+id/status_status"
-                        android:text="@string/home_active_status"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
+<!--                <LinearLayout-->
+<!--                    android:gravity="center"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content">-->
+<!--                    <TextView-->
+<!--                        android:textSize="@dimen/small_text"-->
+<!--                        style="@style/monse_normal_white"-->
+<!--                        android:text="@string/home_frag_status"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"/>-->
+<!--                    <TextView-->
+<!--                        android:paddingStart="@dimen/margin10"-->
+<!--                        android:textSize="@dimen/small_text"-->
+<!--                        style="@style/monse_normal_white"-->
+<!--                        android:id="@+id/status_status"-->
+<!--                        android:text="@string/home_active_status"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"/>-->
+<!--                </LinearLayout>-->
             </LinearLayout>
             <LinearLayout
                 android:gravity="center"
@@ -89,16 +89,17 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent">
                 <TextView
-                    android:textSize="@dimen/titleMax"
-                    style="@style/monse_bold_white"
-                    android:textColor="@color/green_theme"
+                    android:textSize="@dimen/small_text"
+                    style="@style/monse_normal"
+                    android:textColor="@color/generalTextColor"
                     android:id="@+id/status_level"
-                    android:text="10"
+                    android:text="@string/prompt_record_estatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
-                    style="@style/monse_bold_white"
-                    android:textColor="@color/green_theme"
+                    android:id="@+id/status_status"
+                    style="@style/monse_bold"
+                    android:textColor="@color/generalTextColor"
                     android:text="@string/home_level"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>

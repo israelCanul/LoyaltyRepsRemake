@@ -228,7 +228,7 @@ class DownloaderUseCase {
                     val downloadColection = sdk29AndUp {
                         Environment.DIRECTORY_DOWNLOADS
 //                    MediaStore.Video.Media.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY)
-                    } ?: Environment.DIRECTORY_DOWNLOADS
+                    } ?: Environment.getExternalStorageDirectory().path
 
                     withContext(Dispatchers.Main){
                         init()

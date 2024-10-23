@@ -28,9 +28,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var permissionsLauncher: ActivityResultLauncher<Array<String>>
 
     val _viewModel: MainViewModel by viewModels()
-//    lazy {
-//        ViewModelProvider(this)[MainViewModel::class.java]
-//    }
 
     private val navController: NavController by lazy {
         (supportFragmentManager.findFragmentById(R.id.mainNavHost) as NavHostFragment).navController
@@ -48,7 +45,27 @@ class MainActivity : AppCompatActivity() {
         }
         setupNavigation()
         updateOrRequestPermissions()
+        listerners()
     }
+
+    private fun listerners() {
+        binding.layoutBottomNav.setOnItemSelectedListener{
+            when (it.itemId) {
+                R.id.actionXHome -> {
+                    navigate(R.id.actionXHome)
+                }
+                R.id.actionXComplimentaries -> {
+
+                }
+                R.id.actionXShop -> {
+
+                }
+            }
+
+            return@setOnItemSelectedListener true
+        }
+    }
+
     private fun setupNavigation() {
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             Log.i("Destino: ", " destino: ${destination.label}")

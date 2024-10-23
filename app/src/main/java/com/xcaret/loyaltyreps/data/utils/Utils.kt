@@ -4,10 +4,15 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Environment
 import android.util.Log
 import android.view.View
+import androidx.core.content.ContextCompat
+import com.xcaret.loyaltyreps.R
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
@@ -16,6 +21,30 @@ import java.util.*
 
 object Utils {
     const val DRAWABLE = "drawable"
+
+
+
+    fun getBitmapFromDrawableByName(context: Context, name: Int): Bitmap?{
+        var d = ContextCompat.getDrawable(context, name)
+        val bitmap = d?.let { drawableToBitmap(it) }
+        return bitmap
+    }
+    private fun drawableToBitmap(drawable: Drawable): Bitmap {
+        if (drawable is BitmapDrawable) {
+            return drawable.bitmap
+        }
+
+        val bitmap = if (drawable.intrinsicWidth <= 0 || drawable.intrinsicHeight <= 0) {
+            Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888) // Single color bitmap will be created of 1x1 pixel
+        } else {
+            Bitmap.createBitmap(drawable.intrinsicWidth, drawable.intrinsicHeight, Bitmap.Config.ARGB_8888)
+        }
+
+        val canvas = Canvas(bitmap)
+        drawable.setBounds(0, 0, canvas.width, canvas.height)
+        drawable.draw(canvas)
+        return bitmap
+    }
     fun getDrawableId(context: Context?, name: String?): Int?{
         var id: Int? = null
         try {
