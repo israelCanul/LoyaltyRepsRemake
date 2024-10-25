@@ -8,7 +8,7 @@
     >
     <LinearLayout
         android:id="@+id/container_park_training"
-        android:layout_width="350dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:outlineProvider="bounds"
@@ -43,13 +43,12 @@
             <ImageView
                 android:contentDescription="@string/general_action_content_desc"
                 android:id="@+id/park_logo"
-                android:layout_width="130dp"
-                android:layout_height="100dp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/margin10"
                 android:layout_marginBottom="@dimen/margin30"
                 android:background="@color/white"
-                android:scaleType="fitCenter"
                 android:src="@drawable/logo_xplor_ic"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

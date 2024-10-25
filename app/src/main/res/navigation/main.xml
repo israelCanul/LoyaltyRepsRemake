@@ -133,5 +133,18 @@
     <fragment
         android:id="@+id/parks"
         android:name="com.xcaret.loyaltyreps.view.parks.ui.Parks"
-        android:label="Parks" />
+        android:label="Parks" >
+        <action
+            android:id="@+id/action_parks_to_parkDetail"
+            app:destination="@id/parkDetail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/parkDetail"
+        android:name="com.xcaret.loyaltyreps.view.parks.ui.ParkDetail"
+        android:label="ParkDetail" />
 </navigation>

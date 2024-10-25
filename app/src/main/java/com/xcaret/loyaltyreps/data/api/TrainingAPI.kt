@@ -102,7 +102,7 @@ data class XPark(
     val name: String = "",
     var logo: String = "",
     var color: String = "",
-    var infographics: ArrayList<XParkInfographic> = arrayListOf()
+    var infographics: List<XParkInfographic> = arrayListOf()
 )
 
 data class XParkInfographic(

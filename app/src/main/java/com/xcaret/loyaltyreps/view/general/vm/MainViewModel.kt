@@ -9,6 +9,7 @@ import com.xcaret.loyaltyreps.LoyaltyApp.Companion.getApp
 import com.xcaret.loyaltyreps.data.api.TrainingDetail
 import com.xcaret.loyaltyreps.data.api.TrainingImagesSection
 import com.xcaret.loyaltyreps.data.api.TrainingSection
+import com.xcaret.loyaltyreps.data.api.XPark
 import com.xcaret.loyaltyreps.data.entity.GalleryItem
 import com.xcaret.loyaltyreps.data.entity.XUser
 import com.xcaret.loyaltyreps.data.usecase.DownloaderUseCase
@@ -24,12 +25,16 @@ class MainViewModel: ViewModel() {
     var currentUser = MutableLiveData<XUser?>()
     var trainingExtrasParkDetail = MutableLiveData<TrainingDetail?>(null)
     var gallerySelected = MutableLiveData<List<GalleryItem>>(listOf())
+    var parkSelected = MutableLiveData<XPark?>(null)
 
     fun setTrainingDetail(xTraining: TrainingDetail){
         trainingExtrasParkDetail.value = xTraining
     }
     fun setTrainingSection(listItems: List<GalleryItem>){
         gallerySelected.value = listItems
+    }
+    fun setParkSection(park: XPark){
+        parkSelected.value = park
     }
 
     fun downloadImages(displayName: String, imgUrl: String, final: (uri: Uri?, error : String ?)->Unit){
