@@ -48,15 +48,18 @@
             android:layout_marginBottom="@dimen/margin_short"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/menuItemsLanguageRecyclerView"
             android:layout_width="wrap_content"
-            app:spanCount="2"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:paddingVertical="@dimen/margin_short"
+            android:paddingHorizontal="@dimen/margin_short"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_choosePoints"
+            app:spanCount="2"
             tools:listitem="@layout/park_language_item" />
     </LinearLayout>
 </LinearLayout>

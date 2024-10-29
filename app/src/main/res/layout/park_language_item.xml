@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content">
                 <ImageView
+                    android:background="@drawable/circle"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -41,7 +42,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    style="@style/monse_bold"
+                    style="@style/monse_normal"
                     android:textSize="@dimen/title"
                     android:textColor="@color/colorPrimary"
                     android:id="@+id/txt_park_info_language"

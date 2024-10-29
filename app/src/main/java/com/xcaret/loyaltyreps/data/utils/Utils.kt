@@ -22,6 +22,56 @@ import java.util.*
 object Utils {
     const val DRAWABLE = "drawable"
 
+    fun getLanguageLargeNameByRef( name: String): String {
+        var lName: String = "Español"
+        when (name) {
+            "ES" -> {
+                lName = "Español"
+            }
+            "EN" ->{
+                lName = "Inglés"
+            }
+            "FR" ->{
+                lName = "Francés"
+            }
+            "DE" ->{
+                lName = "Alemán"
+            }
+            "RU" ->{
+                lName = "Ruso"
+            }
+            "CH" ->{
+                lName = "Chino"
+            }
+        }
+        return lName
+    }
+    fun getLanguageFlagFromDrawableByName(context: Context, name: String): Bitmap? {
+        var image: Int = R.drawable.mex
+        when (name) {
+            "ES" -> {
+                image = R.drawable.mex
+            }
+            "EN" ->{
+                image = R.drawable.usa
+            }
+            "FR" ->{
+                image = R.drawable.fran
+            }
+            "DE" ->{
+                image = R.drawable.alem
+            }
+            "RU" ->{
+                image = R.drawable.rus
+            }
+            "CH" ->{
+                image = R.drawable.frame
+            }
+        }
+        val d = ContextCompat.getDrawable(context, image)
+        val bitmap = d?.let { drawableToBitmap(it) }
+        return bitmap
+    }
 
     fun getParkLogoBitmapFromDrawableByName(context: Context, name: String): Bitmap?{
         var image: Int = R.drawable.parques_logo

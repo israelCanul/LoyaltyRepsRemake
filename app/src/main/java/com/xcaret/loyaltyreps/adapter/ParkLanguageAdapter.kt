@@ -13,6 +13,8 @@ import com.xcaret.loyaltyreps.data.api.VideoTraining
 import com.xcaret.loyaltyreps.data.api.XPark
 import com.xcaret.loyaltyreps.data.api.XParkInfographic
 import com.xcaret.loyaltyreps.data.entity.GalleryItem
+import com.xcaret.loyaltyreps.data.utils.Utils.getLanguageFlagFromDrawableByName
+import com.xcaret.loyaltyreps.data.utils.Utils.getLanguageLargeNameByRef
 import com.xcaret.loyaltyreps.databinding.GalleryItemBinding
 import com.xcaret.loyaltyreps.databinding.ParkLanguageItemBinding
 
@@ -25,13 +27,27 @@ class ParkLanguageAdapter(
 
     inner class ParkLanguageHolder(val itemBinding: ParkLanguageItemBinding ): RecyclerView.ViewHolder(itemBinding.root){
         fun bind(context: Context, item: XParkInfographic){
-            itemBinding.txtParkInfoLanguage.text = item.language
-            itemBinding.txtParkInfoImage.setImageResource(R.drawable.flag_english)
-            itemBinding.txtParkInfoImage
+            itemBinding.txtParkInfoLanguage.text = getLanguageLargeNameByRef(item.language)
+//            itemBinding.txtParkInfoImage.setImageBitmap(getLanguageFlagFromDrawableByName(context,  item.language))
+//            itemBinding.txtParkInfoImage.setImageResource( R.drawable.flag_english)
+
            itemBinding.containerLanguage.setOnClickListener{
                clickListener(item.language)
            }
+
+            Glide.with(context)
+                .asBitmap()
+                .load(getLanguageFlagFromDrawableByName(context,  item.language))
+                .circleCrop()
+                .into(itemBinding.txtParkInfoImage )
         }
+
+//            Glide.with(context)
+//                .load(image.img)
+//
+//                .fitCenter()
+//                .into(itemBinding.txtParkInfoImage)
+
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ParkLanguageHolder {
         val itemBinding = ParkLanguageItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
