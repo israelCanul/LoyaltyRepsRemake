@@ -52,6 +52,9 @@ class FragmentHome: BaseFragmentDataBinding<FragmentHomeBinding>() {
          binding.btnToTraining.setOnClickListener(){
              navigate(R.id.action_actionXHome_to_training)
          }
+         binding.btnToNewsfeed.setOnClickListener {
+             navigate(R.id.action_actionXHome_to_newsFeed)
+         }
      }
 
     fun observers(){

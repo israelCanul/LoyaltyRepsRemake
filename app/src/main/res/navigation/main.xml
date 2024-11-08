@@ -25,6 +25,14 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
             />
+        <action
+            android:id="@+id/action_actionXHome_to_newsFeed"
+            app:destination="@id/newsFeed"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
     </fragment>
     <fragment
         android:id="@+id/training"
@@ -147,4 +155,21 @@
         android:id="@+id/parkDetail"
         android:name="com.xcaret.loyaltyreps.view.parks.ui.ParkDetail"
         android:label="ParkDetail" />
+    <fragment
+        android:id="@+id/newsFeed"
+        android:name="com.xcaret.loyaltyreps.view.newsfeed.ui.NewsFeed"
+        android:label="NewsFeed" >
+        <action
+            android:id="@+id/action_newsFeed_to_newsDetail"
+            app:destination="@id/newsDetail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/newsDetail"
+        android:name="com.xcaret.loyaltyreps.view.newsfeed.ui.NewsDetail"
+        android:label="NewsDetail" />
 </navigation>

@@ -18,6 +18,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
 import com.xcaret.loyaltyreps.databinding.ActivityMainBinding
+import com.xcaret.loyaltyreps.view.general.vm.GeneralViewModel
 import com.xcaret.loyaltyreps.view.general.vm.MainViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var permissionsLauncher: ActivityResultLauncher<Array<String>>
 
     val _viewModel: MainViewModel by viewModels()
+    val _generalViewModel: GeneralViewModel by viewModels()
 
     private val navController: NavController by lazy {
         (supportFragmentManager.findFragmentById(R.id.mainNavHost) as NavHostFragment).navController

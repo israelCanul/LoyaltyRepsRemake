@@ -140,7 +140,7 @@ class TicketBaseTopBottom @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas) {
         canvas.drawPath(myPath, paint1)
         canvas.drawPath(myPath, paint)
-        canvas.drawPath(myPath, paint2)
+//        canvas.drawPath(myPath, paint2)
     }
 
 

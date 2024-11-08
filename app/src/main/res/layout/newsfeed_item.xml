@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="@dimen/margin_short"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_item_gallery"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:cardCornerRadius="@dimen/button_radius_small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:elevation="2dp"
+                android:layout_marginStart="@dimen/margin4"
+                android:layout_marginBottom="@dimen/margin4"
+                app:layout_constraintStart_toStartOf="@+id/img_cover_new"
+                app:layout_constraintBottom_toBottomOf="@+id/img_cover_new"
+                style="@style/monse_bold_white"
+                android:textSize="@dimen/xsmall_text"
+                android:paddingVertical="@dimen/margin_short"
+                android:paddingHorizontal="@dimen/margin_default"
+                android:background="@drawable/button_green"
+                android:text="@string/general_conoce_mas"
+                android:id="@+id/btn_action_first_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/img_cover_new"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/general_lore_content_desc"
+                android:src="@drawable/coba"
+                app:layout_constraintBottom_toTopOf="@+id/wrapper_desc_first_new"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:id="@+id/wrapper_desc_first_new"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_cover_new"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/margin20"
+                android:paddingVertical="@dimen/margin20"
+                >
+                <TextView
+                    android:id="@+id/txt_subtitle_new"
+                style="@style/monse_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineHeight="10dp"
+                android:textColor="@color/btn_green"
+                android:textSize="@dimen/xsmall_text"
+                tools:text="Xoximilco te regala una cena" />
+                <TextView
+                    android:id="@+id/txt_desc_new"
+                    style="@style/monse_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineHeight="20dp"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/general_text"
+                    tools:text="Xoximilco te regala una cena" />
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,12 +20,12 @@
             </Target>
             <Target type="DEFAULT_BOOT">
               <handle>
-                <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\naril\.android\avd\Pixel_8_API_28.avd" />
+                <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\naril\.android\avd\Pixel_6a_API_30.avd" />
               </handle>
             </Target>
             <Target type="DEFAULT_BOOT">
               <handle>
-                <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\naril\.android\avd\Pixel_6a_API_30.avd" />
+                <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\naril\.android\avd\Pixel_8_API_28.avd" />
               </handle>
             </Target>
             <Target type="DEFAULT_BOOT">

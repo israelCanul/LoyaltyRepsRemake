@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.xcaret.loyaltyreps.LoyaltyApp.Companion.getApp
+import com.xcaret.loyaltyreps.data.api.ResponseNewsFeed
 import com.xcaret.loyaltyreps.data.api.TrainingDetail
 import com.xcaret.loyaltyreps.data.api.TrainingImagesSection
 import com.xcaret.loyaltyreps.data.api.TrainingSection
@@ -26,6 +27,8 @@ class MainViewModel: ViewModel() {
     var trainingExtrasParkDetail = MutableLiveData<TrainingDetail?>(null)
     var gallerySelected = MutableLiveData<List<GalleryItem>>(listOf())
     var parkSelected = MutableLiveData<XPark?>(null)
+
+
 
     fun setTrainingDetail(xTraining: TrainingDetail){
         trainingExtrasParkDetail.value = xTraining
